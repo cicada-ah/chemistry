@@ -1,0 +1,21 @@
+{
+    "name": "svelte-example",
+    "version": "1.0.0",
+    "private": true,
+    "scripts": {
+        "build": "bundless build",
+        "dev": "bundless dev"
+    },
+    "devDependencies": {
+        "@bundless/cli": "0.6.0",
+        "@bundless/plugin-svelte": "^0.0.1",
+        "svelte": "^3.32.1"
+    },
+    "dependencies": {
+        "@smui/tab": "^4.1.0",
+        "@smui/tab-bar": "^4.1.0",
+        "konva": "^7.2.5",
+        "less": "^4.1.1",
+        "svelte-preprocess-less": "^0.4.0"
+    }
+}
