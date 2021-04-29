@@ -1018,7 +1018,7 @@ koa@^2.13.0:
 
 konva@^7.2.5:
   version "7.2.5"
-  resolved "http://npm.baijia.com/konva/-/konva-7.2.5.tgz#9b4ac3a353e6be66e3e69123bf2a0cbc61efeb26"
+  resolved "https://npm.baijia.com/konva/-/konva-7.2.5.tgz#9b4ac3a353e6be66e3e69123bf2a0cbc61efeb26"
   integrity sha1-m0rDo1Pmvmbj5pEjvyoMvGHv6yY=
 
 launch-editor@^2.2.1:
