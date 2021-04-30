@@ -298,6 +298,11 @@
     "@smui/common" "^4.1.0"
     "@smui/tab-indicator" "^4.1.0"
 
+"@tsconfig/svelte@^1.0.10":
+  version "1.0.10"
+  resolved "http://npm.baijia.com/@tsconfig%2fsvelte/-/svelte-1.0.10.tgz#30ec7feeee0bdf38b12a50f0686f8a2e7b6b9dc0"
+  integrity sha1-MOx/7u4L3zixKlDwaG+KLntrncA=
+
 "@types/resolve@^1.17.1":
   version "1.20.0"
   resolved "http://npm.baijia.com/@types%2fresolve/-/resolve-1.20.0.tgz#11325a379b6f63b858fed49552fd4178495ee087"
@@ -1562,6 +1567,11 @@ type-is@^1.6.16:
   dependencies:
     media-typer "0.3.0"
     mime-types "~2.1.24"
+
+typescript@^4.2.4:
+  version "4.2.4"
+  resolved "http://npm.baijia.com/typescript/-/typescript-4.2.4.tgz#8610b59747de028fda898a8aef0e103f156d0961"
+  integrity sha1-hhC1l0feAo/aiYqK7w4QPxVtCWE=
 
 universalify@^2.0.0:
   version "2.0.0"

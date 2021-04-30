@@ -14,8 +14,10 @@
     "dependencies": {
         "@smui/tab": "^4.1.0",
         "@smui/tab-bar": "^4.1.0",
+        "@tsconfig/svelte": "^1.0.10",
         "konva": "^7.2.5",
         "less": "^4.1.1",
-        "svelte-preprocess-less": "^0.4.0"
+        "svelte-preprocess-less": "^0.4.0",
+        "typescript": "^4.2.4"
     }
 }
