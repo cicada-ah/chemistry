@@ -48,6 +48,6 @@
 <div id="container" />
 <style lang="less">
     #container {
-        background-color: rgba(0, 0, 0, 0.1);
+        background-color: #1e90ff;
     }
 </style>
