@@ -1,6 +1,10 @@
 <script lang="typescript">
     import { onMount, setContext } from "svelte";
     import { Konva, key } from "../Konva"
+    import Item from "../model/item";
+    import Container from "../model/container"
+    import type { Config } from "../model/useDrag"
+    import {drop} from "../model/useDrop"
     let stage
     let layer
     let con
@@ -28,24 +32,34 @@
         stage.add(layer);
         con = stage.container();
         con.addEventListener("dragover", function (e: DragEvent) {
-            e.preventDefault(); // !important
+            e.preventDefault();
         });
         con.addEventListener("drop", function (e: DragEvent) {
             e.preventDefault();
             stage.setPointersPositions(e);
-            // console.log()
-            Konva.Image.fromURL(e.dataTransfer.getData("text"), function (image: Konva.Image) {
-                layer.add(image);
-
-                image.position(stage.getPointerPosition());
-                image.draggable(true);
-
-                layer.draw();
-            });
+            const data = JSON.parse(e.dataTransfer.getData("text")) as Config;
+            switch (data.type) {
+                case "item":
+                    new Item({
+                        x: stage.getPointerPosition().x,
+                        y: stage.getPointerPosition().y,
+                        ...data.params,
+                    }).addToLayer(layer)
+                    break;
+                case "container":
+                    new Container({
+                        x: stage.getPointerPosition().x - data.offsetX,
+                        y: stage.getPointerPosition().y - data.offsetY,
+                        ...data.params,
+                    }).addToLayer(layer)
+                    break;
+                default:
+                    break;
+            }
         });
     });
 </script>
-<div id="container" />
+<div id="container" use:drop={{stage, layer}} />
 <style lang="less">
     #container {
         background-color: rgba(0, 0, 0, 0.1);
