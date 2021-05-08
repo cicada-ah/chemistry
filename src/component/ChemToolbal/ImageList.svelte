@@ -14,28 +14,28 @@
         Solid: [
             {
                 name: "Ca",
-                color: "whitle",
-                svgName: "solid",
+                color: "d81e06",
+                svgName: "solid_d81e06",
             },
             {
                 name: "Cu",
                 color: "red",
-                svgName: "solid",
+                svgName: "solid_f4ea2a",
             },
             {
                 name: "CuCl2",
                 color: "",
-                svgName: "solid",
+                svgName: "solid_1afa29",
             },
             {
                 name: "CsBr",
                 color: "",
-                svgName: "solid",
+                svgName: "solid_ffffff",
             },
             {
                 name: "CsF",
                 color: "",
-                svgName: "solid",
+                svgName: "solid_cdcdcd",
             },
         ],
         Liquid: [
@@ -45,10 +45,6 @@
             },
             {
                 name: "H2O2",
-                svgName: "bottle",
-            },
-            {
-                name: "NH4",
                 svgName: "bottle",
             },
             {
@@ -69,6 +65,10 @@
             },
             {
                 name: "CH4",
+            },
+            {
+                name: "NH3",
+                svgName: "bottle",
             },
         ],
         equipment: [
@@ -131,7 +131,7 @@
                 <Image
                     on:dragstart={handleDragstart}
                     class="image-list-standard-image"
-                    src="../src/assets/{item.svgName ? item.svgName : 'bottle'}.svg" />
+                    src={`../src/assets/${$selected}/${item.svgName ? item.svgName : 'bottle'}.svg`} />
                 <Label>{item.name}</Label>
             </ImageAspectContainer>
         </Item>

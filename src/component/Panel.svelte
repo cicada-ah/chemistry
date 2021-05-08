@@ -83,7 +83,7 @@
                     let A = 3,
                         W = 1 / 3,
                         Q = 0,
-                        H = height / 2,
+                        H = (2 * height) / 3,
                         speed = -0.001;
                     var triangle = new Konva.Shape({
                         x: x,
@@ -91,9 +91,9 @@
                         sceneFunc: function (ctx, shape) {
                             (function drawAnimation() {
                                 ctx.beginPath();
-                                ctx.moveTo(0, height / 2);
+                                ctx.moveTo(13, H);
                                 Q += speed;
-                                for (let xm = 0; xm <= width; xm++) {
+                                for (let xm = 13; xm <= width - 10; xm++) {
                                     let ym = A * Math.sin(W * xm + Q) + H;
                                     ctx.lineTo(xm, ym);
                                 }
