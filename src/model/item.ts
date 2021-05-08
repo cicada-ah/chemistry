@@ -1,38 +1,37 @@
 import Box from "./box"
 import type {Config} from "./box"
-import { Konva } from "../Konva"
+import type { Konva } from "../Konva"
 import Container from "./container";
+
+export interface ItemConfig extends Config {
+    name: string;
+    attribute: "liquid" | "solid" | "mix" | "gas";
+    color: string
+    afterAdded: (layer: Konva.Layer) => void
+}
 class Item extends Box {
     name: string;
     attribute: "liquid" | "solid" | "mix" | "gas"
     color: string
-    constructor(config: Config & {name: string; attribute: "liquid" | "solid" | "mix" | "gas"; color: string}) {
-        super({
-            ...config,
-            instance: new Konva.Rect({
-                x: config.x,
-                y: config.y,
-                width: 10,
-                height: 10,
-                fill: 'black',
-                stroke: 'black',
-                strokeWidth: 1
-            })
-        })
+    afterAdded?: (layer: Konva.Layer) => void
+    constructor(config: ItemConfig) {
+        super(config)
         this.name = config.name
         this.attribute = config.attribute
         this.color = config.color
+        this.afterAdded = config.afterAdded
     }
     addToLayer(layer: Konva.Layer) {
-        let target = layer.getIntersection({x: this.x + this.width / 2, y: this.y + this.height / 2})
-        while (target) {
-            if (target["_h2o"] instanceof Container) {
-                const container = target["_h2o"] as Container
-                container.addItem(this)
-                layer.draw()
-                return
+        for (let i = 0; i < layer.children.length; i++) {
+            if (layer.children[i]["_h2o"] instanceof Container) {
+                const container = layer.children[i]["_h2o"] as Container
+                if (this.x >= container.x && this.x <= container.x + container.width && this.y >= container.y && this.y <= container.y + container.height) {
+                    container.addItem(this)
+                    this.afterAdded?.(layer)
+                    layer.draw()
+                    return
+                }
             }
-            target = target.parent
         }
         console.warn("药瓶只能添加进容器！")
     }

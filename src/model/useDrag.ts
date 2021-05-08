@@ -1,11 +1,15 @@
 export function drag(node: HTMLElement, config: Config) {
     const dragHandle = (ev: DragEvent) => {
-        ev.dataTransfer.setData("text/plain", JSON.stringify({...config, offsetX: ev.offsetX, offsetY: ev.offsetY}))
+        const element = ev.target as HTMLElement;
+        ev.dataTransfer.setData("text/plain", JSON.stringify({...config, offsetX: ev.offsetX / element.clientWidth, offsetY: ev.offsetY / element.clientHeight}))
     }
     node.addEventListener("dragstart", dragHandle)
     return {
         destroy() {
             node.removeEventListener("dragstart", dragHandle)
+        },
+        update(newConfig) {
+            config = newConfig
         }
     }
 }

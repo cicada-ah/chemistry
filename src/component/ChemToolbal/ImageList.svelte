@@ -142,7 +142,7 @@
                 }}>
                     <Image
                         class="image-list-standard-image"
-                        src={`../src/assets/${$selected}/${item.svgName ? item.svgName : 'bottle'}.svg`} />
+                        src={`../src/assets/${$selected}/${item.svgName ? item.svgName : 'bottle'}.svg`}
                     />
                 </div>
                 <Label>{item.name}</Label>

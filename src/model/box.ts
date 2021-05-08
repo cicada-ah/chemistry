@@ -5,7 +5,9 @@ interface Rect {
     width: number
     height: number
 }
-export type Config = Rect & { instance: Konva.Shape | Konva.Group, actualBox?: Rect}
+export interface Config extends Rect {
+    instance: Konva.Shape | Konva.Group, actualBox?: Rect
+}
 class Box implements Rect {
     containerWidth: number
     containerHeight: number
