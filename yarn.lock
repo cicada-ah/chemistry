@@ -67,6 +67,14 @@
     ws "^7.4.1"
     yargs "^16.2.0"
 
+"@bundless/plugin-alias@^0.0.1":
+  version "0.0.1"
+  resolved "https://npm.baijia.com/@bundless%2fplugin-alias/-/plugin-alias-0.0.1.tgz#9022862f849c4190feca6bc0e634dc12cdd0bb40"
+  integrity sha1-kCKGL4ScQZD+ymvA5jTcEs3Qu0A=
+  dependencies:
+    escape-string-regexp "^4.0.0"
+    slash "^3.0.0"
+
 "@bundless/plugin-svelte@^0.0.1":
   version "0.0.1"
   resolved "http://npm.baijia.com/@bundless%2fplugin-svelte/-/plugin-svelte-0.0.1.tgz#ba85e9d721abee2b7bbbfe6f4ac9a900b8d1c36f"
@@ -146,6 +154,23 @@
   dependencies:
     tslib "^2.1.0"
 
+"@material/button@^11.0.0":
+  version "11.0.0"
+  resolved "https://npm.baijia.com/@material%2fbutton/-/button-11.0.0.tgz#dd9099ccea2bc095ac146ddec14ebcd21a22278c"
+  integrity sha1-3ZCZzOorwJWsFG3ewU680hoiJ4w=
+  dependencies:
+    "@material/density" "^11.0.0"
+    "@material/dom" "^11.0.0"
+    "@material/elevation" "^11.0.0"
+    "@material/feature-targeting" "^11.0.0"
+    "@material/ripple" "^11.0.0"
+    "@material/rtl" "^11.0.0"
+    "@material/shape" "^11.0.0"
+    "@material/theme" "^11.0.0"
+    "@material/touch-target" "^11.0.0"
+    "@material/typography" "^11.0.0"
+    tslib "^2.1.0"
+
 "@material/density@^11.0.0":
   version "11.0.0"
   resolved "http://npm.baijia.com/@material%2fdensity/-/density-11.0.0.tgz#862b345007f218ab856ba39f2cb8c59712f18270"
@@ -161,11 +186,67 @@
     "@material/feature-targeting" "^11.0.0"
     tslib "^2.1.0"
 
+"@material/drawer@^11.0.0":
+  version "11.0.0"
+  resolved "https://npm.baijia.com/@material%2fdrawer/-/drawer-11.0.0.tgz#be53de6ca0394b5ce570c176495c66d555785b40"
+  integrity sha1-vlPebKA5S1zlcMF2SVxm1VV4W0A=
+  dependencies:
+    "@material/animation" "^11.0.0"
+    "@material/base" "^11.0.0"
+    "@material/dom" "^11.0.0"
+    "@material/elevation" "^11.0.0"
+    "@material/feature-targeting" "^11.0.0"
+    "@material/list" "^11.0.0"
+    "@material/ripple" "^11.0.0"
+    "@material/rtl" "^11.0.0"
+    "@material/shape" "^11.0.0"
+    "@material/theme" "^11.0.0"
+    "@material/typography" "^11.0.0"
+    tslib "^2.1.0"
+
+"@material/elevation@^11.0.0":
+  version "11.0.0"
+  resolved "https://npm.baijia.com/@material%2felevation/-/elevation-11.0.0.tgz#d6f3a1ff22b12a80c0d0b1e86b3fa8d43d916667"
+  integrity sha1-1vOh/yKxKoDA0LHoaz+o1D2RZmc=
+  dependencies:
+    "@material/animation" "^11.0.0"
+    "@material/base" "^11.0.0"
+    "@material/feature-targeting" "^11.0.0"
+    "@material/theme" "^11.0.0"
+    tslib "^2.1.0"
+
 "@material/feature-targeting@^11.0.0":
   version "11.0.0"
   resolved "http://npm.baijia.com/@material%2ffeature-targeting/-/feature-targeting-11.0.0.tgz#fa04d955c1374fe92cbee95fa86784fac8673fd7"
   integrity sha1-+gTZVcE3T+ksvulfqGeE+shnP9c=
   dependencies:
+    tslib "^2.1.0"
+
+"@material/image-list@^11.0.0":
+  version "11.0.0"
+  resolved "https://npm.baijia.com/@material%2fimage-list/-/image-list-11.0.0.tgz#632b1dd4fc5aebf21e58fb2888fdeb4cce69d73e"
+  integrity sha1-Yysd1Pxa6/IeWPsoiP3rTM5p1z4=
+  dependencies:
+    "@material/feature-targeting" "^11.0.0"
+    "@material/shape" "^11.0.0"
+    "@material/theme" "^11.0.0"
+    "@material/typography" "^11.0.0"
+    tslib "^2.1.0"
+
+"@material/list@^11.0.0":
+  version "11.0.0"
+  resolved "https://npm.baijia.com/@material%2flist/-/list-11.0.0.tgz#a5fb719990e0d24966b697e1253e811d4f63a797"
+  integrity sha1-pftxmZDg0klmtpfhJT6BHU9jp5c=
+  dependencies:
+    "@material/base" "^11.0.0"
+    "@material/density" "^11.0.0"
+    "@material/dom" "^11.0.0"
+    "@material/feature-targeting" "^11.0.0"
+    "@material/ripple" "^11.0.0"
+    "@material/rtl" "^11.0.0"
+    "@material/shape" "^11.0.0"
+    "@material/theme" "^11.0.0"
+    "@material/typography" "^11.0.0"
     tslib "^2.1.0"
 
 "@material/ripple@^11.0.0":
@@ -185,6 +266,30 @@
   resolved "http://npm.baijia.com/@material%2frtl/-/rtl-11.0.0.tgz#69e0ff54e723996730916e56b2a11b50275ecd15"
   integrity sha1-aeD/VOcjmWcwkW5WsqEbUCdezRU=
   dependencies:
+    "@material/theme" "^11.0.0"
+    tslib "^2.1.0"
+
+"@material/segmented-button@^11.0.0":
+  version "11.0.0"
+  resolved "https://npm.baijia.com/@material%2fsegmented-button/-/segmented-button-11.0.0.tgz#828529b06fd0c1b5a442ff6ee4aba1e1005b823b"
+  integrity sha1-goUpsG/QwbWkQv9u5Kuh4QBbgjs=
+  dependencies:
+    "@material/base" "^11.0.0"
+    "@material/elevation" "^11.0.0"
+    "@material/feature-targeting" "^11.0.0"
+    "@material/ripple" "^11.0.0"
+    "@material/theme" "^11.0.0"
+    "@material/touch-target" "^11.0.0"
+    "@material/typography" "^11.0.0"
+    tslib "^2.1.0"
+
+"@material/shape@^11.0.0":
+  version "11.0.0"
+  resolved "https://npm.baijia.com/@material%2fshape/-/shape-11.0.0.tgz#0a1da3855d58c9261f0658932265bc54804e2377"
+  integrity sha1-Ch2jhV1YySYfBliTImW8VIBOI3c=
+  dependencies:
+    "@material/feature-targeting" "^11.0.0"
+    "@material/rtl" "^11.0.0"
     "@material/theme" "^11.0.0"
     tslib "^2.1.0"
 
@@ -246,6 +351,15 @@
     "@material/feature-targeting" "^11.0.0"
     tslib "^2.1.0"
 
+"@material/touch-target@^11.0.0":
+  version "11.0.0"
+  resolved "https://npm.baijia.com/@material%2ftouch-target/-/touch-target-11.0.0.tgz#4f0cc0b928c90114f8b9b4538688215a1769e629"
+  integrity sha1-TwzAuSjJART4ubRThoghWhdp5ik=
+  dependencies:
+    "@material/base" "^11.0.0"
+    "@material/feature-targeting" "^11.0.0"
+    tslib "^2.1.0"
+
 "@material/typography@^11.0.0":
   version "11.0.0"
   resolved "http://npm.baijia.com/@material%2ftypography/-/typography-11.0.0.tgz#23175cfe2e2409c79c8b1061709bc29dc0fecdc3"
@@ -255,6 +369,19 @@
     "@material/theme" "^11.0.0"
     tslib "^2.1.0"
 
+"@smui/button@^4.1.0":
+  version "4.1.0"
+  resolved "https://npm.baijia.com/@smui%2fbutton/-/button-4.1.0.tgz#ef2a5d24daa17ffd8d9fbc349cd1581a71f83f2a"
+  integrity sha1-7ypdJNqhf/2Nn7w0nNFYGnH4Pyo=
+  dependencies:
+    "@material/button" "^11.0.0"
+    "@material/elevation" "^11.0.0"
+    "@material/feature-targeting" "^11.0.0"
+    "@material/ripple" "^11.0.0"
+    "@material/theme" "^11.0.0"
+    "@smui/common" "^4.1.0"
+    "@smui/ripple" "^4.1.0"
+
 "@smui/common@^4.1.0":
   version "4.1.0"
   resolved "http://npm.baijia.com/@smui%2fcommon/-/common-4.1.0.tgz#8cc0912c187a934b1325d6188e50c7ccc65f8888"
@@ -262,6 +389,51 @@
   dependencies:
     "@material/dom" "^11.0.0"
     svelte "^3.35.0"
+
+"@smui/drawer@^4.1.0":
+  version "4.1.0"
+  resolved "https://npm.baijia.com/@smui%2fdrawer/-/drawer-4.1.0.tgz#2ed3ccb89418f4ee8f30d84bdf461d4ced45a313"
+  integrity sha1-LtPMuJQY9O6PMNhL30YdTO1FoxM=
+  dependencies:
+    "@material/dom" "^11.0.0"
+    "@material/drawer" "^11.0.0"
+    "@smui/common" "^4.1.0"
+
+"@smui/image-list@^4.1.0":
+  version "4.1.0"
+  resolved "https://npm.baijia.com/@smui%2fimage-list/-/image-list-4.1.0.tgz#dd8b145eafc7e88da5665f3a74b8e18e41ac27ed"
+  integrity sha1-3YsUXq/H6I2lZl86dLjhjkGsJ+0=
+  dependencies:
+    "@material/image-list" "^11.0.0"
+    "@smui/common" "^4.1.0"
+
+"@smui/list@^4.1.0":
+  version "4.1.0"
+  resolved "https://npm.baijia.com/@smui%2flist/-/list-4.1.0.tgz#0f0764d0bd796152f728edd452d1d417041dac9c"
+  integrity sha1-Dwdk0L15YVL3KO3UUtHUFwQdrJw=
+  dependencies:
+    "@material/dom" "^11.0.0"
+    "@material/feature-targeting" "^11.0.0"
+    "@material/list" "^11.0.0"
+    "@smui/common" "^4.1.0"
+    "@smui/ripple" "^4.1.0"
+
+"@smui/ripple@^4.1.0":
+  version "4.1.0"
+  resolved "https://npm.baijia.com/@smui%2fripple/-/ripple-4.1.0.tgz#a5d3a3d6ef5930d48b0f44e4eb11ebbaeb1d0803"
+  integrity sha1-pdOj1u9ZMNSLD0Tk6xHruusdCAM=
+  dependencies:
+    "@material/dom" "^11.0.0"
+    "@material/ripple" "^11.0.0"
+
+"@smui/segmented-button@^4.1.0":
+  version "4.1.0"
+  resolved "https://npm.baijia.com/@smui%2fsegmented-button/-/segmented-button-4.1.0.tgz#d16f2090408727fe5f218e849bc82f52db6d8d70"
+  integrity sha1-0W8gkECHJ/5fIY6Em8gvUtttjXA=
+  dependencies:
+    "@material/segmented-button" "^11.0.0"
+    "@smui/common" "^4.1.0"
+    "@smui/ripple" "^4.1.0"
 
 "@smui/tab-bar@^4.1.0":
   version "4.1.0"
@@ -1338,6 +1510,13 @@ restore-cursor@^3.1.0:
   dependencies:
     onetime "^5.1.0"
     signal-exit "^3.0.2"
+
+rollup-plugin-alias@^2.2.0:
+  version "2.2.0"
+  resolved "https://npm.baijia.com/rollup-plugin-alias/-/rollup-plugin-alias-2.2.0.tgz#5004a2bc542a2eebb45b5a0fff8c6f540439decc"
+  integrity sha1-UASivFQqLuu0W1oP/4xvVAQ53sw=
+  dependencies:
+    slash "^3.0.0"
 
 rollup-plugin-inject@^3.0.0:
   version "3.0.2"
