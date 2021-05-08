@@ -113,7 +113,6 @@
                         lineWidth: 1,
                         strokeWidth: 1,
                     });
-
                     // add the triangle shape to the layer
                     layer.add(triangle);
 
