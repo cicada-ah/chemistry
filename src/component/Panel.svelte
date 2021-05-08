@@ -1,10 +1,14 @@
 <script lang="ts">
     import { onMount, setContext } from "svelte";
-    import { Konva, key } from "../Konva";
-    import { haveIntersection } from "@/utils/utilsFunc.ts";
-    let stage;
-    let layer;
-    let con;
+    import { Konva, key } from "../Konva"
+    import Item from "../model/item";
+    import Container from "../model/container"
+    import type { Config } from "../model/useDrag"
+    import {drop} from "../model/useDrop"
+    import { haveIntersection } from "@/utils/utilsFunc";
+    let stage
+    let layer
+    let con
 
     setContext(key, {
         getStage() {
@@ -30,11 +34,31 @@
         stage.add(layer);
         con = stage.container();
         con.addEventListener("dragover", function (e: DragEvent) {
-            e.preventDefault(); // !important
+            e.preventDefault();
         });
         con.addEventListener("drop", function (e: DragEvent) {
             e.preventDefault();
             stage.setPointersPositions(e);
+            const data = JSON.parse(e.dataTransfer.getData("text")) as Config;
+            console.log(data)
+            switch (data.type) {
+                case "item":
+                    new Item({
+                        x: stage.getPointerPosition().x,
+                        y: stage.getPointerPosition().y,
+                        ...data.params,
+                    }).addToLayer(layer)
+                    break;
+                case "container":
+                    new Container({
+                        x: stage.getPointerPosition().x - data.offsetX,
+                        y: stage.getPointerPosition().y - data.offsetY,
+                        ...data.params,
+                    }).addToLayer(layer)
+                    break;
+                default:
+                    break;
+            }
             // console.log()
             Konva.Image.fromURL(e.dataTransfer.getData("text"), function (
                 image: Konva.Image & { _testRotate: Function }
@@ -123,11 +147,10 @@
         });
     });
 </script>
-
 <style lang="less">
     #container {
         background-color: #1e90ff;
     }
 </style>
 
-<div id="container" />
+<div id="container" use:drop={{stage, layer}} />

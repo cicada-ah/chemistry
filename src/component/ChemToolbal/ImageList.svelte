@@ -6,12 +6,15 @@
         Label,
     } from "@smui/image-list";
     import { selected } from "@/store/MenuBar.ts";
+    import { drag } from "../../model/useDrag"
     const handleDragstart = (e) => {
-        e.dataTransfer.setData("text/plain", e.target.src);
+        e.dataTransfer.setData("text/plain", {
+            type: ""
+        });
     };
     const imageList = {
-        Mixture: [{ name: "air", svgName: "" }],
-        Solid: [
+        mixture: [{ name: "air", svgName: "" }],
+        solid: [
             {
                 name: "Ca",
                 color: "d81e06",
@@ -38,7 +41,7 @@
                 svgName: "solid_cdcdcd",
             },
         ],
-        Liquid: [
+        liquid: [
             {
                 name: "H2O",
                 svgName: "bottle",
@@ -56,7 +59,7 @@
                 svgName: "bottle",
             },
         ],
-        Gas: [
+        gas: [
             {
                 name: "CO",
             },
@@ -128,10 +131,20 @@
     {#each imageList[$selected] as item, i}
         <Item>
             <ImageAspectContainer class="image-list-standard-item">
-                <Image
-                    on:dragstart={handleDragstart}
-                    class="image-list-standard-image"
-                    src={`../src/assets/${$selected}/${item.svgName ? item.svgName : 'bottle'}.svg`} />
+                <div use:drag={{
+                    type: $selected === 'equipment' ? 'container' : 'item',
+                    params: {
+                        src: `../src/assets/${$selected}/${item.svgName ? item.svgName : 'bottle'}.svg`,
+                        name: item.name,
+                        color: item.color,
+                        attributes: $selected
+                    }
+                }}>
+                    <Image
+                        class="image-list-standard-image"
+                        src={`../src/assets/${$selected}/${item.svgName ? item.svgName : 'bottle'}.svg`} />
+                    />
+                </div>
                 <Label>{item.name}</Label>
             </ImageAspectContainer>
         </Item>

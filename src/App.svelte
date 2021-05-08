@@ -5,9 +5,6 @@
 
 <style lang="less">
     @import "./styles/index.less";
-    #drag-items img {
-        height: 100px;
-    }
 </style>
 
 <main>
