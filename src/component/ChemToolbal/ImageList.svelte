@@ -6,10 +6,10 @@
         Label,
     } from "@smui/image-list";
     import { selected } from "@/store/MenuBar.ts";
-    import { drag } from "../../model/useDrag"
+    import { drag } from "../../model/useDrag";
     const handleDragstart = (e) => {
         e.dataTransfer.setData("text/plain", {
-            type: ""
+            type: "",
         });
     };
     const imageList = {
@@ -45,18 +45,22 @@
             {
                 name: "H2O",
                 svgName: "bottle",
+                color: "#00ffff",
             },
             {
                 name: "H2O2",
                 svgName: "bottle",
+                color: "#cccccc",
             },
             {
                 name: "HCL",
                 svgName: "bottle",
+                color: "#cccccc",
             },
             {
                 name: "H2SO4",
                 svgName: "bottle",
+                color: "#cccccc",
             },
         ],
         gas: [
@@ -131,19 +135,11 @@
     {#each imageList[$selected] as item, i}
         <Item>
             <ImageAspectContainer class="image-list-standard-item">
-                <div use:drag={{
-                    type: $selected === 'equipment' ? 'container' : 'item',
-                    params: {
-                        src: `../src/assets/${$selected}/${item.svgName ? item.svgName : 'bottle'}.svg`,
-                        name: item.name,
-                        color: item.color,
-                        attributes: $selected
-                    }
-                }}>
+                <div
+                    use:drag={{ type: $selected === 'equipment' ? 'container' : 'item', params: { src: `../src/assets/${$selected}/${item.svgName ? item.svgName : 'bottle'}.svg`, name: item.name, color: item.color, attribute: $selected } }}>
                     <Image
                         class="image-list-standard-image"
-                        src={`../src/assets/${$selected}/${item.svgName ? item.svgName : 'bottle'}.svg`}
-                    />
+                        src={`../src/assets/${$selected}/${item.svgName ? item.svgName : 'bottle'}.svg`} />
                 </div>
                 <Label>{item.name}</Label>
             </ImageAspectContainer>
