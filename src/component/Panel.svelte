@@ -5,7 +5,7 @@
     import Container from "../model/container";
     import type { Config } from "../model/useDrag";
     import { drop } from "../model/useDrop";
-    import { drawLiquid } from "../utils/utilsFunc";
+    import { drawLiquid, drawSolid } from "../utils/utilsFunc";
     let stage;
     let layer;
     let con;
@@ -52,22 +52,28 @@
                             height: image.height(),
                             ...data.params,
                             afterAdded(layer) {
-                                layer.add(image);
-                                layer.draw();
-                                var tween = new Konva.Tween({
-                                    node: image,
-                                    duration: 2,
-                                    rotation: -70,
-                                    opacity: 0.5,
-                                    easing: Konva.Easings.BackEaseOut,
-                                    onFinish: function () {
-                                        image.destroy();
-                                    },
-                                });
+                                switch (this.attribute) {
+                                    case "liquid":
+                                        layer.add(image);
+                                        layer.draw();
+                                        var tween = new Konva.Tween({
+                                            node: image,
+                                            duration: 2,
+                                            rotation: -70,
+                                            opacity: 0.5,
+                                            easing: Konva.Easings.BackEaseOut,
+                                            onFinish: function () {
+                                                image.destroy();
+                                            },
+                                        });
 
-                                setTimeout(function () {
-                                    tween.play();
-                                }, 100);
+                                        setTimeout(function () {
+                                            tween.play();
+                                        }, 100);
+                                        break;
+                                    default:
+                                        break;
+                                }
                             },
                             instance: image,
                         }).addToLayer(layer);
@@ -93,13 +99,12 @@
                                 console.log("发生了反应");
                             },
                             addItem: function (item) {
-                                console.log(item);
                                 switch (item.attribute) {
                                     case "liquid":
                                         drawLiquid(this, item);
                                         break;
                                     case "solid":
-                                        // drawSolid(this, item);
+                                    drawSolid(this, item);
                                     default:
                                         break;
                                 }

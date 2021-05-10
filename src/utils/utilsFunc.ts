@@ -1,4 +1,6 @@
 import Konva from "konva";
+import type Item from "@/model/item";
+import type Container from "@/model/container";
 
 export function haveIntersection(r1, r2) {
   return !(
@@ -11,11 +13,10 @@ export function haveIntersection(r1, r2) {
 
 export function drawLiquid(container, item) {
   const { width, height } = container;
+
+  const groupCludeImageLen = container.instance.children.length;
   const groupChildCount =
-    5 - container.instance.children.length <= 2
-      ? 2
-      : 5 - container.instance.children.length;
-  console.log(Math.min(groupChildCount, 4));
+    5 - groupCludeImageLen <= 1 ? 1 : 5 - groupCludeImageLen;
   let A = 2,
     W = 1 / 2,
     Q = 0,
@@ -47,10 +48,14 @@ export function drawLiquid(container, item) {
     stroke: item.color,
     lineWidth: 1,
     strokeWidth: 1,
+    opacity: 0.7,
   });
   container.instance.add(triangle);
 }
 
-export function drawSolid(container, item) {
-    
+export function drawSolid(container, item: Item) {
+  const { width, height } = container;
+  item.instance.opacity(0.7);
+  item.instance.setPosition({ x: (2 * width) / 5, y: (6 * height) / 10 });
+  container.instance.add(item.instance);
 }

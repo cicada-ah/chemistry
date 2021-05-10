@@ -21,7 +21,7 @@
         position: absolute;
         margin-top: 10px;
         z-index: 999;
-        color:cornsilk;
+        color: cornsilk;
     }
 </style>
 
@@ -31,4 +31,4 @@
         <ImageList />
     </div>
 {/if}
-<label> {visible ? 'visible': 'disvisible'} </label>
+<label> {visible ? 'press space key: open' : 'press space key: close'} </label>
