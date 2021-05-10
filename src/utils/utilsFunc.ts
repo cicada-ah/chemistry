@@ -59,3 +59,32 @@ export function drawSolid(container, item: Item) {
   item.instance.setPosition({ x: (2 * width) / 5, y: (6 * height) / 10 });
   container.instance.add(item.instance);
 }
+
+export function drawBubble(container) {
+  const { width, height } = container;
+  for (let i = 0; i < 15; i++) {
+    let xRange = Math.min(width - 12, Math.random() * width);
+    let circleX = xRange > 15 ? xRange : 15;
+    const circle = new Konva.Circle({
+      x: circleX,
+      y: height - 5,
+      radius: Math.random() * 3,
+      fill: "#fff",
+      opacity: 0.9,
+      name: "shape-" + i,
+    });
+    container.instance.add(circle);
+    const tween = new Konva.Tween({
+      node: circle,
+      duration: (Math.random() + 0.6) * 2,
+      y: (Math.random() + 1) * 10,
+      opacity: 0,
+      onFinish: () => {
+        circle.destroy();
+      },
+    });
+    setTimeout(() => {
+      tween.play();
+    }, 100 * i);
+  }
+}
