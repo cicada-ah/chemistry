@@ -43,7 +43,6 @@
             Konva.Image.fromURL(data.params.src, function (
                 image: Konva.Image & { _testRotate: Function }
             ) {
-                console.log(data.type);
                 switch (data.type) {
                     case "item": {
                         new Item({

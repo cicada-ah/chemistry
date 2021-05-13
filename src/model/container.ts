@@ -6,6 +6,7 @@ import {
   drawSolid,
   drawProduct,
   drawBubble,
+  drawLabel,
 } from "@/utils/utilsFunc";
 import { postChemicalReact } from "@/subjects/http";
 import { delay } from "rxjs/operators";
@@ -40,7 +41,7 @@ class Container extends Box {
     postChemicalReact(reqParmas)
       .pipe(delay(1000))
       .subscribe((res) => {
-        if (res.success) {
+        if (res.success && res.reactResp.length) {
           // clearn container
           this.includesDraw?.forEach((item: any) => {
             item.destroy();
@@ -49,6 +50,7 @@ class Container extends Box {
           this.includes = [];
           // draw new chemRes
           drawProduct(this, res.reactResp);
+          drawLabel(this, res.reactResp);
         }
       });
   }

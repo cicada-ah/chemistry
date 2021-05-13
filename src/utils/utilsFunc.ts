@@ -61,6 +61,56 @@ export function drawProduct(container, reactResp) {
     });
   });
 }
+
+export function drawLabel(container, reactResp) {
+  if (reactResp[0]) {
+    const { expression, ruleDesc } = reactResp[0];
+    const { width, height } = container;
+    // tooltip
+    var tooltip = new Konva.Label({
+      x: width / 2,
+      y: -10,
+      opacity: 0.75,
+    });
+
+    tooltip.add(
+      new Konva.Tag({
+        fill: "white",
+        pointerDirection: "down",
+        pointerWidth: 20,
+        pointerHeight: 20,
+        lineJoin: "round",
+        shadowColor: "green",
+        shadowBlur: 10,
+        shadowOffsetX: 10,
+        shadowOffsetY: 10,
+        shadowOpacity: 0.5,
+      })
+    );
+
+    tooltip.add(
+      new Konva.Text({
+        text: expression,
+        fontFamily: "Calibri",
+        fontSize: 18,
+        padding: 5,
+        fill: "white",
+      })
+    );
+    tooltip.add(
+      new Konva.Text({
+        text: ruleDesc,
+        fontFamily: "Calibri",
+        fontSize: 18,
+        padding: 5,
+        fill: "white",
+      })
+    );
+    container.instance.add(tooltip);
+    console.log(container);
+    container.includesDraw.push(tooltip);
+  }
+}
 export function drawLiquid(container, item) {
   const { width, height } = container;
 
