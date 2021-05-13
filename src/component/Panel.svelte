@@ -5,6 +5,7 @@
     import Container from "../model/container";
     import type { Config } from "../model/useDrag";
     import { drop } from "../model/useDrop";
+    import { Particle } from "@/model/particle";
     let stage;
     let layer;
     let con;
@@ -42,6 +43,7 @@
             Konva.Image.fromURL(data.params.src, function (
                 image: Konva.Image & { _testRotate: Function }
             ) {
+                console.log(data.type);
                 switch (data.type) {
                     case "item": {
                         new Item({
@@ -96,6 +98,69 @@
                             instance: contGroup,
                         }).addToLayer(layer);
                         break;
+                    }
+                    case "burner": {
+                        // var circle = new Konva.Circle({
+                        //     x: stage.width() / 2,
+                        //     y: stage.height() / 2,
+                        //     radius: 70,
+                        //     fill: "red",
+                        //     stroke: "black",
+                        //     strokeWidth: 4,
+                        // });
+                        // layer.add(circle);
+                        // layer.draw();
+                        // setTimeout(() => {
+                        //     circle.setAttrs({
+                        //         radius: 20,
+                        //     });
+                        //     layer.draw();
+                        // }, 1000);
+
+                        const flameGroup = new Konva.Group({
+                            draggable: true,
+                        });
+
+                        var W = 100;
+                        var H = 100;
+                        var CX = W / 2;
+                        var CY = H / 2;
+                        var mouse = {
+                            x: CX,
+                            y: CY,
+                            tx: CX,
+                            ty: CY,
+                        };
+                        const particles = [];
+                        const particleCount = 200;
+                        let particle = null;
+                        setInterval(loop, 60);
+                        function loop() {
+                            if (particles.length < particleCount) {
+                                particle = new Particle(
+                                    W,
+                                    H,
+                                    mouse.x,
+                                    mouse.y,
+                                    Math.random() - 0.5,
+                                    Math.random() * -10,
+                                    Math.random() * 1.5
+                                );
+                                particle.create(layer, flameGroup);
+                                particles.push(particle);
+                                flameGroup.add(particle.instance);
+                            }
+
+                            for (let i = 0; i < particleCount - 1; i++) {
+                                particle = particles[i];
+                                if (particle) {
+                                    particle.update({ mouse, W, H: 100 });
+                                    particle.render();
+                                }
+                            }
+                            layer.add(flameGroup);
+                            layer.draw();
+                        }
                     }
                     default:
                         break;
@@ -165,7 +230,7 @@
 
 <style lang="less">
     #container {
-        background-color: #1e90ff;
+        background-color: black;
     }
 </style>
 

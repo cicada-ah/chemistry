@@ -1,18 +1,26 @@
+import Konva from "konva";
+var colors = [
+  ["rgba(101,219,255,1)", "rgba(101,219,255,.5)", "rgba(101,219,255,0)"],
+  ["hsla(25, 70%, 50%, 1)", "hsla(35, 70%, 50%, 0.5)", "hsla(35, 70%, 50%, 0)"],
+];
 export class Particle {
   x;
   y;
+  h;
+  w;
   vx;
   vy;
   size;
-  img;
   alpha;
-  constructor({ x, y, vx, vy, size, img }) {
+  instance: Konva.Circle;
+  constructor(x, y, vx, vy, w, h, size) {
     this.x = x;
     this.y = y;
     this.vx = vx;
     this.vy = vy;
     this.size = size;
-    this.img = img;
+    this.w = w;
+    this.h = h;
     this.alpha = Math.random();
   }
   update({ mouse, W, H }) {
@@ -37,12 +45,45 @@ export class Particle {
       this.alpha = Math.random();
     }
   }
-  render(ctx) {
-    ctx.save();
-    ctx.globalAlpha = this.alpha;
-    ctx.translate(this.x, this.y);
-    ctx.scale(this.size, this.size);
-    ctx.drawImage(this.img, -this.img.width / 2, -this.img.height / 2);
-    ctx.restore();
+  
+  create() {
+    const _this = this;
+    const innerFlame = new Konva.Circle({
+      x: _this.x,
+      y: _this.y,
+      width: _this.w,
+      height: _this.h,
+      radius: 50,
+      opacity: _this.alpha,
+      scale: { x: _this.size, y: _this.size },
+      fillRadialGradientStartPoint: { x: 0, y: 0 },
+      fillRadialGradientStartRadius: 0,
+      fillRadialGradientEndPoint: { x: 0, y: 0 },
+      fillRadialGradientEndRadius: 50,
+      globalCompositeOperation: "lighter",
+      fillRadialGradientColorStops: [
+        0,
+        colors[1][0],
+        0.3,
+        colors[1][1],
+        1,
+        colors[1][2],
+      ],
+    });
+    _this.instance = innerFlame;
+  }
+
+  render() {
+    const _this = this;
+    const innerFlame = _this.instance;
+    innerFlame.setAttrs({
+      x: _this.x,
+      y: _this.y,
+      width: _this.w,
+      height: _this.h,
+      radius: 50,
+      opacity: _this.alpha,
+      scale: { x: _this.size, y: _this.size },
+    });
   }
 }
