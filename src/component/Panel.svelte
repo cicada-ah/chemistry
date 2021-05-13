@@ -5,7 +5,6 @@
     import Container from "../model/container";
     import type { Config } from "../model/useDrag";
     import { drop } from "../model/useDrop";
-    import { drawBubble, drawLiquid, drawSolid } from "../utils/utilsFunc";
     let stage;
     let layer;
     let con;
@@ -95,22 +94,6 @@
                             height,
                             ...data.params,
                             instance: contGroup,
-                            reaction: function () {
-                                console.log("发生了反应");
-                                drawBubble(this);
-                            },
-                            addItem: function (item) {
-                                switch (item.attribute) {
-                                    case "liquid":
-                                        drawLiquid(this, item);
-                                        break;
-                                    case "solid":
-                                        drawSolid(this, item);
-                                    default:
-                                        break;
-                                }
-                                this.reaction();
-                            },
                         }).addToLayer(layer);
                         break;
                     }

@@ -1223,6 +1223,11 @@ less@^4.1.1:
     needle "^2.5.2"
     source-map "~0.6.0"
 
+loadsh@^0.0.4:
+  version "0.0.4"
+  resolved "https://npm.baijia.com/loadsh/-/loadsh-0.0.4.tgz#5314babd12bb13315dde024a4ca70758c5489d2d"
+  integrity sha1-UxS6vRK7EzFd3gJKTKcHWMVInS0=
+
 locate-path@^6.0.0:
   version "6.0.0"
   resolved "http://npm.baijia.com/locate-path/-/locate-path-6.0.0.tgz#55321eb309febbc59c4801d931a72452a681d286"
@@ -1541,6 +1546,13 @@ rollup-pluginutils@^2.8.1:
   dependencies:
     estree-walker "^0.6.1"
 
+rxjs@^7.0.1:
+  version "7.0.1"
+  resolved "https://npm.baijia.com/rxjs/-/rxjs-7.0.1.tgz#5f41c4f991cea550471fc5d215727390103702c7"
+  integrity sha1-X0HE+ZHOpVBHH8XSFXJzkBA3Asc=
+  dependencies:
+    tslib "~2.1.0"
+
 safe-buffer@5.1.2:
   version "5.1.2"
   resolved "http://npm.baijia.com/safe-buffer/-/safe-buffer-5.1.2.tgz#991ec69d296e0313747d59bdfd2b745c35f8828d"
@@ -1733,6 +1745,11 @@ tslib@^2.1.0:
   version "2.2.0"
   resolved "http://npm.baijia.com/tslib/-/tslib-2.2.0.tgz#fb2c475977e35e241311ede2693cee1ec6698f5c"
   integrity sha1-+yxHWXfjXiQTEe3iaTzuHsZpj1w=
+
+tslib@~2.1.0:
+  version "2.1.0"
+  resolved "https://npm.baijia.com/tslib/-/tslib-2.1.0.tgz#da60860f1c2ecaa5703ab7d39bc05b6bf988b97a"
+  integrity sha1-2mCGDxwuyqVwOrfTm8Bba/mIuXo=
 
 tsscmp@1.0.6:
   version "1.0.6"

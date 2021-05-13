@@ -1,32 +1,71 @@
 import Box from "./box";
 import type { Config } from "./box";
-import { Konva } from "../Konva";
 import type Item from "./item";
+import {
+  drawLiquid,
+  drawSolid,
+  drawProduct,
+  drawBubble,
+} from "@/utils/utilsFunc";
+import { postChemicalReact } from "@/subjects/http";
+import { delay } from "rxjs/operators";
 
 export interface ContainerConfig extends Config {
   name: string;
-  reaction: () => void;
-  addItem: (item: Item) => void;
 }
 
 class Container extends Box {
   name: string;
   includes: Item[];
+  includesDraw: [];
   condition: "normal" | "heating" | "shake" | "cooling";
   constructor(config: ContainerConfig) {
     super(config);
     this.name = config.name;
     this.includes = [];
+    this.includesDraw = [];
     this.condition = "normal";
-    this.reaction = config?.reaction;
-    this.addItem = config?.addItem;
   }
   reaction() {
-    console.log("发生反应了！");
+    const reqParmas: {
+      condType: number;
+      reactors: Array<string>;
+    } = {
+      condType: 1,
+      reactors: [],
+    };
+    this.includes?.forEach((item) => {
+      reqParmas.reactors.push(item.name);
+    });
+    postChemicalReact(reqParmas)
+      .pipe(delay(1000))
+      .subscribe((res) => {
+        if (res.success) {
+          // clearn container
+          this.includesDraw?.forEach((item: any) => {
+            item.destroy();
+          });
+          this.includesDraw = [];
+          this.includes = [];
+          // draw new chemRes
+          drawProduct(this, res.reactResp);
+        }
+      });
   }
   addItem(item: Item) {
+    switch (item.attribute) {
+      case "liquid":
+        drawLiquid(this, item);
+        break;
+      case "solid":
+        drawSolid(this, item);
+        break;
+      case "gas":
+        drawBubble(this);
+        break;
+    }
     this.includes.push(item);
-    this.reaction();
+    this.includes.length >= 2 && this.reaction();
   }
 }
 

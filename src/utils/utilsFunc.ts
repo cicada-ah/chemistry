@@ -1,6 +1,5 @@
 import Konva from "konva";
 import type Item from "@/model/item";
-import type Container from "@/model/container";
 
 export function haveIntersection(r1, r2) {
   return !(
@@ -11,16 +10,64 @@ export function haveIntersection(r1, r2) {
   );
 }
 
+export function drawProduct(container, reactResp) {
+  const liquidList = [],
+    solidList = [],
+    gasList = [];
+  reactResp.forEach((item) => {
+    item.chemList?.forEach((chem) => {
+      switch (chem.physicalType) {
+        case 0:
+          liquidList.push(chem);
+          break;
+        case 1:
+          solidList.push(chem);
+          break;
+        case 2:
+          gasList.push(chem);
+          break;
+      }
+    });
+  });
+  liquidList.forEach((item) => {
+    container.addItem({
+      name: item.formula,
+      attribute: "liquid",
+      ...item,
+    });
+  });
+  const hasLiquid = !!liquidList.length;
+  solidList.forEach((item) => {
+    if (hasLiquid) {
+      container.addItem({
+        name: item.formula,
+        attribute: "liquid",
+        ...item,
+      });
+    } else {
+      container.addItem({
+        name: item.formula,
+        attribute: "solid",
+        ...item,
+      });
+    }
+  });
+
+  gasList.forEach((item) => {
+    container.addItem({
+      name: item.formula,
+      attribute: "gas",
+      ...item,
+    });
+  });
+}
 export function drawLiquid(container, item) {
   const { width, height } = container;
 
-  const groupCludeImageLen = container.instance.children.length;
-  const groupChildCount =
-    5 - groupCludeImageLen <= 1 ? 1 : 5 - groupCludeImageLen;
   let A = 2,
     W = 1 / 2,
     Q = 0,
-    H = (groupChildCount * height) / 5;
+    H = (3 * height) / 5;
   // speed = -0.000001;
   var triangle = new Konva.Shape({
     x: 0,
@@ -28,15 +75,15 @@ export function drawLiquid(container, item) {
     sceneFunc: function (ctx, shape) {
       (function drawAnimation() {
         ctx.beginPath();
-        ctx.moveTo(12, H);
+        ctx.moveTo(32, H);
         // Q += speed;
-        for (let xm = 12; xm <= width - 9; xm++) {
+        for (let xm = 32; xm <= width - 22; xm++) {
           let ym = A * Math.sin(W * xm + Q) + H;
           ctx.lineTo(xm, ym);
         }
         ctx.stroke();
-        ctx.lineTo(width - 9, height - 4);
-        ctx.lineTo(12, height - 4);
+        ctx.lineTo(width - 22, height - 11);
+        ctx.lineTo(32, height - 11);
         ctx.fill();
         ctx.closePath();
       })();
@@ -50,14 +97,28 @@ export function drawLiquid(container, item) {
     strokeWidth: 1,
     opacity: 0.7,
   });
+  container.includesDraw.push(triangle);
   container.instance.add(triangle);
 }
 
 export function drawSolid(container, item: Item) {
   const { width, height } = container;
-  item.instance.opacity(0.7);
-  item.instance.setPosition({ x: (2 * width) / 5, y: (6 * height) / 10 });
-  container.instance.add(item.instance);
+
+  for (let index = 8; index < 15; index++) {
+    const hexagon = new Konva.RegularPolygon({
+      x: (index * width) / 20,
+      y: height - 20 - Math.random() * 5,
+      sides: 7,
+      radius: 6,
+      fill: item.color,
+      stroke: "black",
+      dash: [1, 2, 3],
+      strokeWidth: 1,
+      opacity: 0.8,
+    });
+    container.includesDraw.push(hexagon);
+    container.instance.add(hexagon);
+  }
 }
 
 export function drawBubble(container) {

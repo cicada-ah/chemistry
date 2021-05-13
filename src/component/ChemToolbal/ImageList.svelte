@@ -48,6 +48,16 @@
                 color: "#00ffff",
             },
             {
+                name: "NaOH",
+                svgName: "bottle",
+                color: "#00ffff",
+            },
+            {
+                name: "HCl",
+                svgName: "bottle",
+                color: "#00ffff",
+            },
+            {
                 name: "H2O2",
                 svgName: "bottle",
                 color: "#cccccc",
