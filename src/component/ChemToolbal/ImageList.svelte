@@ -155,7 +155,7 @@
         <Item>
             <ImageAspectContainer class="image-list-standard-item">
                 <div
-                    use:drag={{ type: $selected === 'equipment' ? (item.name === 'Alcohol lamp' ? 'burner' : 'container') : 'item', params: { src: `../src/assets/${$selected}/${item.svgName ? item.svgName : 'bottle'}.svg`, name: item.name, color: item.color, attribute: $selected } }}>
+                    use:drag={{ type: $selected === 'equipment' ? (item.name === 'Alcohol lamp' ? 'burner' : 'container') : 'item', params: { src: item.svgName, name: item.name, color: item.color, attribute: $selected } }}>
                     <Image
                         class="image-list-standard-image"
                         src={item.svgName} />

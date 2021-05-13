@@ -5,7 +5,7 @@
     import Container from "../model/container";
     import type { Config } from "../model/useDrag";
     import { drop } from "../model/useDrop";
-    import AlcoholBurner from "@/model/alcoholBurner"
+    import AlcoholBurner from "@/model/alcoholBurner";
     let stage;
     let layer;
     let con;
@@ -40,9 +40,7 @@
             e.preventDefault();
             stage.setPointersPositions(e);
             const data = JSON.parse(e.dataTransfer.getData("text")) as Config;
-            Konva.Image.fromURL(data.params.src, function (
-                image: Konva.Image
-            ) {
+            Konva.Image.fromURL(data.params.src, function (image: Konva.Image) {
                 switch (data.type) {
                     case "item": {
                         new Item({
@@ -112,7 +110,7 @@
                             height,
                             status: "burned",
                             ...data.params,
-                        }).addToLayer(layer)
+                        }).addToLayer(layer);
                     }
                     default:
                         break;
