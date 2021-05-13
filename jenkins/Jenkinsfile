@@ -1,0 +1,46 @@
+@Library('whyy') _
+
+def exposePort = { props, params, env, ctx ->
+    '80'
+}
+
+def serviceHosts = { props, params, env, ctx ->
+    def map = [
+        'test': 'test-chemical-h2o.baijia.com',
+        'beta': 'beta-chemical-h2o.baijia.com',
+        'prod': 'chemical-h2o.baijia.com'
+    ]
+    return map[props['PROJECT_ENV']]
+}
+
+def generateBuildScript = { props, params, env, ctx ->
+    // customize here
+    def previous = "${ctx.IMAGE_REPO}:previous"
+    if (sh(script: "docker pull ${ctx.IMAGE_REPO}:previous", returnStatus: true) != 0) {
+        previous = "scratch"
+    }
+    return """
+    docker build --label "commit_id=${env.GIT_COMMIT}" --pull -f Dockerfile --build-arg PREVIOUS=${previous} --build-arg SUB_COMMAND=${props['SUB_COMMAND']} --build-arg TAG_NAME=${env.GIT_COMMIT ?: ''} -t ${ctx.IMAGE_REPO}:${ctx.IMAGE_TAG} .
+    docker image tag ${ctx.IMAGE_REPO}:${ctx.IMAGE_TAG} ${ctx.IMAGE_REPO}:previous
+    """
+}
+
+def generatePushScript = { props, params, env, ctx ->
+    // customize here
+    return """
+    docker push ${ctx.IMAGE_REPO}:${ctx.IMAGE_TAG}
+    docker push ${ctx.IMAGE_REPO}:previous
+    """
+}
+
+def configStub = { props, params, env, ctx ->
+    com.baijia.whyy.Common.notEmpty(props['SUB_COMMAND'], "SUB_COMMAND 未提供", ctx.CURRENT_BUILD)
+}
+
+whyy([
+    exposePort: exposePort,
+    serviceHosts: serviceHosts,
+    generateBuildScript: generateBuildScript,
+    generatePushScript: generatePushScript,
+    configStub: configStub,
+])
