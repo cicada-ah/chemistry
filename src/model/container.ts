@@ -26,6 +26,12 @@ class Container extends Box {
     this.includesDraw = [];
     this.condition = "normal";
   }
+  changeCondition(nextCondition: Container["condition"]) {
+    if (nextCondition !== this.condition) {
+      this.condition = nextCondition
+      this.reaction()
+    }
+  }
   reaction() {
     const reqParmas: {
       condType: number;
