@@ -20,6 +20,7 @@ class Item extends Box {
     this.attribute = config.attribute;
     this.color = config.color;
     this.afterAdded = config.afterAdded;
+    this.instance.draggable(false)
   }
   addToLayer(layer: Konva.Layer) {
     for (let i = 0; i < layer.children.length; i++) {
