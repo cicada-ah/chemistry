@@ -9,6 +9,16 @@ function resolve(pathname) {
  * @type { import('@bundless/cli').Config }
  */
 module.exports = {
+  loader: {
+    ".png": "file",
+    ".svg": "file",
+  },
+  build: {
+    basePath: "/",
+    jsTarget: "es2018", // target es version
+    minify: true, // run esbuild minification
+    outDir: "./dist",
+  },
   plugins: [
     AliasPlugin({
       entries: { "@": resolve("./src") },

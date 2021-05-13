@@ -5,7 +5,6 @@
     import Container from "../model/container";
     import type { Config } from "../model/useDrag";
     import { drop } from "../model/useDrop";
-    import { Particle } from "@/model/particle";
     import AlcoholBurner from "@/model/alcoholBurner"
     let stage;
     let layer;

@@ -3,11 +3,11 @@
     "version": "1.0.0",
     "private": true,
     "scripts": {
-        "build": "bundless build",
+        "build": "bundless build --outDir='./dest'",
         "dev": "bundless dev"
     },
     "devDependencies": {
-        "@bundless/cli": "0.6.0",
+        "@bundless/cli": "^0.6.0",
         "@bundless/plugin-svelte": "^0.0.1",
         "rollup-plugin-alias": "^2.2.0",
         "svelte": "^3.32.1"

@@ -7,103 +7,112 @@
     } from "@smui/image-list";
     import { selected } from "@/store/MenuBar.ts";
     import { drag } from "../../model/useDrag";
+    import solid_d81e06 from "@/assets/solid/solid_d81e06.svg";
+    import bottle from "@/assets/liquid/bottle.svg";
+    import lamp from "@/assets/equipment/lamp.svg";
+    import conical from "@/assets/equipment/conical-flask-empty.svg";
+    import testTube from "@/assets/equipment/test-tube-empty.svg";
+    import ironSupport from "@/assets/equipment/iron-support.svg";
     const handleDragstart = (e) => {
         e.dataTransfer.setData("text/plain", {
             type: "",
         });
     };
     const imageList = {
-        mixture: [{ name: "air", svgName: "" }],
+        mixture: [{ name: "air", svgName: bottle }],
         solid: [
             {
                 name: "Ca",
                 color: "d81e06",
-                svgName: "solid_d81e06",
+                svgName: solid_d81e06,
             },
             {
                 name: "Cu",
                 color: "red",
-                svgName: "solid_f4ea2a",
+                svgName: solid_d81e06,
             },
             {
                 name: "CuCl2",
                 color: "",
-                svgName: "solid_1afa29",
+                svgName: solid_d81e06,
             },
             {
                 name: "CsBr",
                 color: "",
-                svgName: "solid_ffffff",
+                svgName: solid_d81e06,
             },
             {
                 name: "CsF",
                 color: "",
-                svgName: "solid_cdcdcd",
+                svgName: solid_d81e06,
             },
         ],
         liquid: [
             {
                 name: "H2O",
-                svgName: "bottle",
+                svgName: bottle,
                 color: "#00ffff",
             },
             {
                 name: "NaOH",
-                svgName: "bottle",
+                svgName: bottle,
                 color: "#00ffff",
             },
             {
                 name: "HCl",
-                svgName: "bottle",
+                svgName: bottle,
                 color: "#00ffff",
             },
             {
                 name: "H2O2",
-                svgName: "bottle",
+                svgName: bottle,
                 color: "#cccccc",
             },
             {
                 name: "HCL",
-                svgName: "bottle",
+                svgName: bottle,
                 color: "#cccccc",
             },
             {
                 name: "H2SO4",
-                svgName: "bottle",
+                svgName: bottle,
                 color: "#cccccc",
             },
         ],
         gas: [
             {
                 name: "CO",
+                svgName: bottle,
             },
             {
                 name: "CO2",
+                svgName: bottle,
             },
             {
                 name: "CH4",
+                svgName: bottle,
             },
             {
                 name: "NH3",
-                svgName: "bottle",
+                svgName: bottle,
             },
         ],
         equipment: [
             {
                 name: "Alcohol lamp",
-                svgName: "lamp",
+                svgName: lamp,
             },
             {
                 name: "test tube",
-                svgName: "test-tube-empty",
+                svgName: testTube,
             },
             {
                 name: "iron support",
-                svgName: "iron-support",
+                svgName: ironSupport,
             },
             {
                 name: "conical flask",
-                svgName: "conical-flask-empty",
+                svgName: conical,
             },
         ],
     };
@@ -149,7 +158,7 @@
                     use:drag={{ type: $selected === 'equipment' ? (item.name === 'Alcohol lamp' ? 'burner' : 'container') : 'item', params: { src: `../src/assets/${$selected}/${item.svgName ? item.svgName : 'bottle'}.svg`, name: item.name, color: item.color, attribute: $selected } }}>
                     <Image
                         class="image-list-standard-image"
-                        src={`../src/assets/${$selected}/${item.svgName ? item.svgName : 'bottle'}.svg`} />
+                        src={item.svgName} />
                 </div>
                 <Label>{item.name}</Label>
             </ImageAspectContainer>
