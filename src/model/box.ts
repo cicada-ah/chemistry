@@ -1,3 +1,4 @@
+import { haveIntersection } from "@/utils/utilsFunc"
 import type Konva from "konva"
 interface Rect {
     x: number
@@ -6,7 +7,8 @@ interface Rect {
     height: number
 }
 export interface Config extends Rect {
-    instance: Konva.Shape | Konva.Group, actualBox?: Rect
+    instance?: Konva.Shape | Konva.Group,
+    actualBox?: Rect
 }
 class Box implements Rect {
     containerWidth: number
@@ -17,24 +19,39 @@ class Box implements Rect {
     height: number
     instance: Konva.Shape | Konva.Group
     needClear: (() => void)[]
-    enter?: (v: Konva.Shape | Konva.Group) => void
-    leave?: (v: Konva.Shape | Konva.Group) => void
     constructor(config: Config) {
         Object.assign(this, config)
         this.needClear = []
         this.setContainer()
-        this.initInstance(config.instance)
-        this.initX(config.x)
-        this.initY(config.y)
-        this.initWidth(config.width)
-        this.initHeight(config.height)
+        if (config.instance) {
+            this.initInstance(config.instance)
+            this.initX(config.x)
+            this.initY(config.y)
+            this.initWidth(config.width)
+            this.initHeight(config.height)
+        }
     }
     addToLayer(layer: Konva.Layer) {
         layer.add(this.instance)
         layer.draw()
+        layer.children.each((v) => {
+            const target = v["_h2o"] as Box
+
+            if (target && target !== this) {
+                if (haveIntersection(target, this)) {
+                    target.enter(this.instance)
+                }
+            }
+        })
     }
     dispose() {
-
+        this.instance.destroy()
+    }
+    enter(v: Konva.Shape | Konva.Group) {
+        console.log(v, "哎呀，进来了！")
+    }
+    leave(v: Konva.Shape | Konva.Group) {
+        console.log(v, "别出去呀！")
     }
     setContainer(width?: number, height?: number) {
         if (!width || !height) {
