@@ -8,7 +8,6 @@ body {
 }
 
 body {
-  color: #333;
   margin: 0;
   box-sizing: border-box;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
@@ -48,7 +47,6 @@ input:disabled {
 }
 
 button {
-  color: #333;
   background-color: #f4f4f4;
   outline: none;
 }

@@ -99,7 +99,7 @@
         display: flex;
         justify-content: center;
         align-items: flex-end;
-        margin: 5px 15px;
+        margin: 15px;
         width: 70px;
         height: 100px;
     }
@@ -127,7 +127,12 @@
                         class="image-list-standard-image"
                         src={item.svgName} />
                 </div>
-                <Label>{item.formula || item.name}</Label>
+                <Label
+                    style="color: {item.color};
+                    font-size: 14px;
+                font-weight: 900;">
+                    {item.formula || item.name}
+                </Label>
             </ImageAspectContainer>
         </Item>
     {/each}

@@ -45,7 +45,7 @@ export class Particle {
       this.alpha = Math.random();
     }
   }
-  
+
   create() {
     const _this = this;
     const innerFlame = new Konva.Circle({

@@ -6,7 +6,7 @@
     import type { Config } from "../model/useDrag";
     import { drop } from "../model/useDrop";
     import AlcoholBurner from "@/model/alcoholBurner";
-import { drawBubble } from "@/utils/utilsFunc";
+    import { drawBubble } from "@/utils/utilsFunc";
     let stage;
     let layer;
     let con;
@@ -71,7 +71,7 @@ import { drawBubble } from "@/utils/utilsFunc";
                                         }, 100);
                                         break;
                                     case "gas":
-                                    layer.add(image);
+                                        layer.add(image);
                                         layer.draw();
                                         var tween = new Konva.Tween({
                                             node: image,
@@ -140,7 +140,7 @@ import { drawBubble } from "@/utils/utilsFunc";
 
 <style lang="less">
     #container {
-        background-color: black;
+        background-color: #274c43;
     }
 </style>
 
