@@ -5,6 +5,7 @@ import { Konva } from "../Konva";
 
 export interface AlcoholBurnerConfig extends Config {
   status: "burned" | "extinct";
+  lampType: "normal" | "high";
   src: string;
 }
 export default class AlcoholBurner extends Box {
@@ -13,9 +14,11 @@ export default class AlcoholBurner extends Box {
   private _particlesCount: number;
   private _fileInstance: Konva.Group;
   private _timeoutId: number;
+  lampType: "normal" | "high";
   constructor(config: AlcoholBurnerConfig) {
     super(config);
     this.status = config.status;
+    this.lampType = config.lampType;
     this._particles = [];
     this._particlesCount = 200;
     this._fileInstance = new Konva.Group();
@@ -68,7 +71,7 @@ export default class AlcoholBurner extends Box {
         Math.random() * -10,
         Math.random() * 1.5
       );
-      particle.create();
+      particle.create({ lampType: this.lampType });
       this._particles.push(particle);
       this._fileInstance.add(particle.instance);
     }

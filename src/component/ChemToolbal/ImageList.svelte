@@ -9,7 +9,8 @@
     import { selected } from "@/store/MenuBar.ts";
     import { drag } from "../../model/useDrag";
     import bottle from "@/assets/liquid/bottle.svg";
-    import lamp from "@/assets/equipment/lamp.svg";
+    import lamp1 from "@/assets/equipment/lamp1.svg";
+    import lamp2 from "@/assets/equipment/lamp2.svg";
     import solid from "@/assets/solid/solid.svg";
     import conical from "@/assets/equipment/conical-flask-empty.svg";
     import testTube from "@/assets/equipment/test-tube-empty.svg";
@@ -26,7 +27,13 @@
         equipment: [
             {
                 name: "Alcohol lamp",
-                svgName: lamp,
+                svgName: lamp1,
+                lampType: "normal",
+            },
+            {
+                name: "High Alcohol lamp",
+                svgName: lamp2,
+                lampType: "high",
             },
             {
                 name: "test tube",
@@ -122,7 +129,7 @@
         <Item>
             <ImageAspectContainer class="image-list-standard-item">
                 <div
-                    use:drag={{ type: $selected === 'equipment' ? (item.name === 'Alcohol lamp' ? 'burner' : 'container') : 'item', params: { src: item.svgName, name: item.formula, color: item.color, attribute: physicalType[item.physicalType] } }}>
+                    use:drag={{ type: $selected === 'equipment' ? (item.name === 'Alcohol lamp' || item.name === 'High Alcohol lamp' ? 'burner' : 'container') : 'item', params: { src: item.svgName, name: item.formula, color: item.color, attribute: physicalType[item.physicalType], lampType: item.lampType } }}>
                     <Image
                         class="image-list-standard-image"
                         src={item.svgName} />

@@ -46,7 +46,8 @@ export class Particle {
     }
   }
 
-  create() {
+  create({ lampType }) {
+    const colorIndex = lampType === "high" ? 0 : 1;
     const _this = this;
     const innerFlame = new Konva.Circle({
       x: _this.x,
@@ -63,11 +64,11 @@ export class Particle {
       globalCompositeOperation: "lighter",
       fillRadialGradientColorStops: [
         0,
-        colors[1][0],
+        colors[colorIndex][0],
         0.3,
-        colors[1][1],
+        colors[colorIndex][1],
         1,
-        colors[1][2],
+        colors[colorIndex][2],
       ],
     });
     _this.instance = innerFlame;

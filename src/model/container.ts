@@ -63,8 +63,21 @@ class Container extends Box {
       });
   }
   enter(v: AlcoholBurner) {
-    this.changeCondition(3);
+    if (v.lampType) {
+      v.lampType === "high" ? this.changeCondition(2) : this.changeCondition(3);
+    } else if (v["_h2o"]?.lmapType !== undefined) {
+      switch (v["_h2o"]?.lmapType) {
+        case "high":
+          this.changeCondition(2);
+          break;
+
+        default:
+          this.changeCondition(3);
+          break;
+      }
+    }
   }
+
   leave(v: AlcoholBurner) {
     this.changeCondition(1);
   }
