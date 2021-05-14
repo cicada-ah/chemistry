@@ -17,6 +17,7 @@
     "@smui/button": "^4.1.0",
     "@smui/drawer": "^4.1.0",
     "@smui/image-list": "^4.1.0",
+    "@smui/linear-progress": "^4.2.0",
     "@smui/list": "^4.1.0",
     "@smui/segmented-button": "^4.1.0",
     "@smui/tab": "^4.1.0",

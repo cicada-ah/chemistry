@@ -20,9 +20,9 @@
     "@babel/helper-validator-identifier" "^7.12.11"
     to-fast-properties "^2.0.0"
 
-"@bundless/cli@0.6.0":
+"@bundless/cli@^0.6.0":
   version "0.6.0"
-  resolved "http://npm.baijia.com/@bundless%2fcli/-/cli-0.6.0.tgz#10ac2b8de209f9f05351a295de819d45b3f6d991"
+  resolved "https://npm.baijia.com/@bundless%2fcli/-/cli-0.6.0.tgz#10ac2b8de209f9f05351a295de819d45b3f6d991"
   integrity sha1-EKwrjeIJ+fBTUaKV3oGdRbP22ZE=
   dependencies:
     "@babel/parser" "^7.12.11"
@@ -233,6 +233,19 @@
     "@material/typography" "^11.0.0"
     tslib "^2.1.0"
 
+"@material/linear-progress@^11.0.0":
+  version "11.0.0"
+  resolved "https://npm.baijia.com/@material%2flinear-progress/-/linear-progress-11.0.0.tgz#15200798ad2ac19f1df0913c056c5ab05b26dc6d"
+  integrity sha1-FSAHmK0qwZ8d8JE8BWxasFsm3G0=
+  dependencies:
+    "@material/animation" "^11.0.0"
+    "@material/base" "^11.0.0"
+    "@material/feature-targeting" "^11.0.0"
+    "@material/progress-indicator" "^11.0.0"
+    "@material/rtl" "^11.0.0"
+    "@material/theme" "^11.0.0"
+    tslib "^2.1.0"
+
 "@material/list@^11.0.0":
   version "11.0.0"
   resolved "https://npm.baijia.com/@material%2flist/-/list-11.0.0.tgz#a5fb719990e0d24966b697e1253e811d4f63a797"
@@ -247,6 +260,13 @@
     "@material/shape" "^11.0.0"
     "@material/theme" "^11.0.0"
     "@material/typography" "^11.0.0"
+    tslib "^2.1.0"
+
+"@material/progress-indicator@^11.0.0":
+  version "11.0.0"
+  resolved "https://npm.baijia.com/@material%2fprogress-indicator/-/progress-indicator-11.0.0.tgz#42b9b1ceb546966577f30132ab421744534b638e"
+  integrity sha1-QrmxzrVGlmV38wEyq0IXRFNLY44=
+  dependencies:
     tslib "^2.1.0"
 
 "@material/ripple@^11.0.0":
@@ -390,6 +410,14 @@
     "@material/dom" "^11.0.0"
     svelte "^3.35.0"
 
+"@smui/common@^4.2.0":
+  version "4.2.0"
+  resolved "https://npm.baijia.com/@smui%2fcommon/-/common-4.2.0.tgz#81ddb9d5b9a39cc814188fa18834301261b9ea9e"
+  integrity sha1-gd251bmjnMgUGI+hiDQwEmG56p4=
+  dependencies:
+    "@material/dom" "^11.0.0"
+    svelte "^3.35.0"
+
 "@smui/drawer@^4.1.0":
   version "4.1.0"
   resolved "https://npm.baijia.com/@smui%2fdrawer/-/drawer-4.1.0.tgz#2ed3ccb89418f4ee8f30d84bdf461d4ced45a313"
@@ -406,6 +434,14 @@
   dependencies:
     "@material/image-list" "^11.0.0"
     "@smui/common" "^4.1.0"
+
+"@smui/linear-progress@^4.2.0":
+  version "4.2.0"
+  resolved "https://npm.baijia.com/@smui%2flinear-progress/-/linear-progress-4.2.0.tgz#11e5168d63ba2f521e528d7bb181cf92948c2285"
+  integrity sha1-EeUWjWO6L1IeUo17sYHPkpSMIoU=
+  dependencies:
+    "@material/linear-progress" "^11.0.0"
+    "@smui/common" "^4.2.0"
 
 "@smui/list@^4.1.0":
   version "4.1.0"

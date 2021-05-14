@@ -5,6 +5,7 @@
         Image,
         Label,
     } from "@smui/image-list";
+    import LinearProgress from "@smui/linear-progress";
     import { selected } from "@/store/MenuBar.ts";
     import { drag } from "../../model/useDrag";
     import bottle from "@/assets/liquid/bottle.svg";
@@ -15,6 +16,7 @@
     import ironSupport from "@/assets/equipment/iron-support.svg";
     import { getChemicals } from "@/subjects/http/index";
     import { map } from "rxjs/operators";
+    import { onMount } from "svelte";
     const physicalType = ["solid", "liquid", "gas"];
     let imageList = {
         mixture: [{ name: "air", svgName: bottle }],
@@ -40,6 +42,13 @@
             },
         ],
     };
+    let progress;
+    let imageRef;
+    onMount(() => {
+        const imageDOM = imageRef.getElement();
+        progress = imageDOM.scrollLeft / imageDOM.scrollWidth;
+    });
+
     getChemicals()
         .pipe(
             map((res) => {
@@ -67,6 +76,10 @@
                 ...res,
             };
         });
+    const handleScoll = (x) => {
+        progress =
+            (x.target.scrollLeft + x.target.clientWidth) / x.target.scrollWidth;
+    };
 </script>
 
 <style lang="less" scoped="false">
@@ -101,12 +114,15 @@
     }
 </style>
 
-<ImageList class="image-list-standard">
+<ImageList
+    bind:this={imageRef}
+    class="image-list-standard"
+    on:scroll={handleScoll}>
     {#each imageList[$selected] as item, i}
         <Item>
             <ImageAspectContainer class="image-list-standard-item">
                 <div
-                    use:drag={{ type: $selected === 'equipment' ? (item.formula === 'Alcohol lamp' ? 'burner' : 'container') : 'item', params: { src: item.svgName, name: item.formula, color: item.color, attribute: physicalType[item.physicalType] } }}>
+                    use:drag={{ type: $selected === 'equipment' ? (item.name === 'Alcohol lamp' ? 'burner' : 'container') : 'item', params: { src: item.svgName, name: item.formula, color: item.color, attribute: physicalType[item.physicalType] } }}>
                     <Image
                         class="image-list-standard-image"
                         src={item.svgName} />
@@ -116,3 +132,4 @@
         </Item>
     {/each}
 </ImageList>
+<LinearProgress {progress} />

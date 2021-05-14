@@ -10,6 +10,7 @@ import {
 } from "@/utils/utilsFunc";
 import { postChemicalReact } from "@/subjects/http";
 import { delay } from "rxjs/operators";
+import type AlcoholBurner from "./alcoholBurner";
 
 export interface ContainerConfig extends Config {
   name: string;
@@ -19,13 +20,13 @@ class Container extends Box {
   name: string;
   includes: Item[];
   includesDraw: [];
-  condition: "normal" | "heating" | "shake" | "cooling";
+  condition: 1 | 2 | 3;
   constructor(config: ContainerConfig) {
     super(config);
     this.name = config.name;
     this.includes = [];
     this.includesDraw = [];
-    this.condition = "normal";
+    this.condition = 1;
   }
   changeCondition(nextCondition: Container["condition"]) {
     if (nextCondition !== this.condition) {
@@ -38,7 +39,7 @@ class Container extends Box {
       condType: number;
       reactors: Array<string>;
     } = {
-      condType: 1,
+      condType: this.condition,
       reactors: [],
     };
     this.includes?.forEach((item) => {
@@ -59,6 +60,14 @@ class Container extends Box {
           drawLabel(this, res.reactResp);
         }
       });
+  }
+  enter(v: AlcoholBurner) {
+    this.condition = 3;
+    this.reaction();
+  }
+  leave(v: AlcoholBurner) {
+    this.condition = 1;
+    this.reaction();
   }
   addItem(item: Item) {
     switch (item.attribute) {
