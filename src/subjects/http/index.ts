@@ -28,12 +28,24 @@ http$$.subscribe();
 export const postChemicalReact = (parmas: any) => {
   const mergeConfig = _merge(
     {
-      url: "https://test-chemical-web.baijia.com//chemical/react",
+      url: "https://test-chemical-web.baijia.com/chemical/react",
       method: "POST",
     },
     {
       body: parmas,
     }
+  );
+  http$.next(mergeConfig);
+  return http$$.pipe(take(1));
+};
+
+export const getChemicals = () => {
+  const mergeConfig = _merge(
+    {
+      url: "https://test-chemical-web.baijia.com/chemical/getAll",
+      method: "get",
+    },
+
   );
   http$.next(mergeConfig);
   return http$$.pipe(take(1));

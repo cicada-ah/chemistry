@@ -7,96 +7,20 @@
     } from "@smui/image-list";
     import { selected } from "@/store/MenuBar.ts";
     import { drag } from "../../model/useDrag";
-    import solid_d81e06 from "@/assets/solid/solid_d81e06.svg";
     import bottle from "@/assets/liquid/bottle.svg";
     import lamp from "@/assets/equipment/lamp.svg";
+    import solid_d81e06 from "@/assets/solid/solid_d81e06.svg";
     import conical from "@/assets/equipment/conical-flask-empty.svg";
     import testTube from "@/assets/equipment/test-tube-empty.svg";
     import ironSupport from "@/assets/equipment/iron-support.svg";
-    const handleDragstart = (e) => {
-        e.dataTransfer.setData("text/plain", {
-            type: "",
-        });
-    };
-    const imageList = {
+    import { getChemicals } from "@/subjects/http/index";
+    import { map } from "rxjs/operators";
+    const physicalType = ["solid", "liquid", "gas"];
+    let imageList = {
         mixture: [{ name: "air", svgName: bottle }],
-        solid: [
-            {
-                name: "Ca",
-                color: "d81e06",
-                svgName: solid_d81e06,
-            },
-            {
-                name: "Cu",
-                color: "red",
-                svgName: solid_d81e06,
-            },
-            {
-                name: "CuCl2",
-                color: "",
-                svgName: solid_d81e06,
-            },
-            {
-                name: "CsBr",
-                color: "",
-                svgName: solid_d81e06,
-            },
-            {
-                name: "CsF",
-                color: "",
-                svgName: solid_d81e06,
-            },
-        ],
-        liquid: [
-            {
-                name: "H2O",
-                svgName: bottle,
-                color: "#00ffff",
-            },
-            {
-                name: "NaOH",
-                svgName: bottle,
-                color: "#00ffff",
-            },
-            {
-                name: "HCl",
-                svgName: bottle,
-                color: "#00ffff",
-            },
-            {
-                name: "H2O2",
-                svgName: bottle,
-                color: "#cccccc",
-            },
-            {
-                name: "HCL",
-                svgName: bottle,
-                color: "#cccccc",
-            },
-            {
-                name: "H2SO4",
-                svgName: bottle,
-                color: "#cccccc",
-            },
-        ],
-        gas: [
-            {
-                name: "CO",
-                svgName: bottle,
-            },
-            {
-                name: "CO2",
-                svgName: bottle,
-            },
-            {
-                name: "CH4",
-                svgName: bottle,
-            },
-            {
-                name: "NH3",
-                svgName: bottle,
-            },
-        ],
+        solidList: [],
+        liquidList: [],
+        gasList: [],
         equipment: [
             {
                 name: "Alcohol lamp",
@@ -116,6 +40,33 @@
             },
         ],
     };
+    getChemicals()
+        .pipe(
+            map((res) => {
+                Object.keys(res).forEach((val) => {
+                    res[val].forEach((item) => {
+                        switch (val) {
+                            case "solidList":
+                                item.svgName = solid_d81e06;
+                                break;
+                            case "liquidList":
+                                item.svgName = bottle;
+                            default:
+                                item.svgName = bottle;
+                                break;
+                        }
+                    });
+                });
+                return res;
+            })
+        )
+        .subscribe((res) => {
+            // console.log(res);
+            imageList = {
+                ...imageList,
+                ...res,
+            };
+        });
 </script>
 
 <style lang="less" scoped="false">
@@ -155,12 +106,12 @@
         <Item>
             <ImageAspectContainer class="image-list-standard-item">
                 <div
-                    use:drag={{ type: $selected === 'equipment' ? (item.name === 'Alcohol lamp' ? 'burner' : 'container') : 'item', params: { src: item.svgName, name: item.name, color: item.color, attribute: $selected } }}>
+                    use:drag={{ type: $selected === 'equipment' ? (item.formula === 'Alcohol lamp' ? 'burner' : 'container') : 'item', params: { src: item.svgName, name: item.formula, color: item.color, attribute: physicalType[item.physicalType] } }}>
                     <Image
                         class="image-list-standard-image"
                         src={item.svgName} />
                 </div>
-                <Label>{item.name}</Label>
+                <Label>{item.formula || item.name}</Label>
             </ImageAspectContainer>
         </Item>
     {/each}

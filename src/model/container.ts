@@ -29,8 +29,8 @@ class Container extends Box {
   }
   changeCondition(nextCondition: Container["condition"]) {
     if (nextCondition !== this.condition) {
-      this.condition = nextCondition
-      this.reaction()
+      this.condition = nextCondition;
+      this.reaction();
     }
   }
   reaction() {

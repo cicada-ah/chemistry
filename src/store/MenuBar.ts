@@ -1,3 +1,3 @@
 import { writable } from "svelte/store";
-let selectedVal = "mixture";
+let selectedVal = "liquidList";
 export const selected = writable(selectedVal);
