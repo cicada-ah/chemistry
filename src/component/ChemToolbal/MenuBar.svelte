@@ -2,7 +2,7 @@
   import SegmentedButton, { Segment } from "@smui/segmented-button";
   import { Label } from "@smui/common";
   import { selected } from "@/store/MenuBar.ts";
-  let choices = ["liquidList", "equipment", "solidList", "gasList", "mixture"];
+  let choices = ["solidList", "liquidList", "gasList", "equipment", "mixture"];
 </script>
 
 <style>

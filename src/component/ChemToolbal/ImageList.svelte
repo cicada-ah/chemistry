@@ -10,7 +10,7 @@
     import { drag } from "../../model/useDrag";
     import bottle from "@/assets/liquid/bottle.svg";
     import lamp from "@/assets/equipment/lamp.svg";
-    import solid_d81e06 from "@/assets/solid/solid_d81e06.svg";
+    import solid from "@/assets/solid/solid.svg";
     import conical from "@/assets/equipment/conical-flask-empty.svg";
     import testTube from "@/assets/equipment/test-tube-empty.svg";
     import ironSupport from "@/assets/equipment/iron-support.svg";
@@ -56,7 +56,7 @@
                     res[val].forEach((item) => {
                         switch (val) {
                             case "solidList":
-                                item.svgName = solid_d81e06;
+                                item.svgName = solid;
                                 break;
                             case "liquidList":
                                 item.svgName = bottle;
