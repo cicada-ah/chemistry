@@ -58,16 +58,15 @@ class Container extends Box {
           // draw new chemRes
           drawProduct(this, res.reactResp);
           drawLabel(this, res.reactResp);
+          this.instance.draw();
         }
       });
   }
   enter(v: AlcoholBurner) {
-    this.condition = 3;
-    this.reaction();
+    this.changeCondition(3);
   }
   leave(v: AlcoholBurner) {
-    this.condition = 1;
-    this.reaction();
+    this.changeCondition(1);
   }
   addItem(item: Item) {
     switch (item.attribute) {
@@ -78,7 +77,7 @@ class Container extends Box {
         drawSolid(this, item);
         break;
       case "gas":
-        drawBubble(this);
+        drawBubble(this, item);
         break;
     }
     this.includes.push(item);

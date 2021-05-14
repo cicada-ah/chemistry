@@ -18,10 +18,10 @@ export function drawProduct(container, reactResp) {
     item.chemList?.forEach((chem) => {
       switch (chem.physicalType) {
         case 0:
-          liquidList.push(chem);
+          solidList.push(chem);
           break;
         case 1:
-          solidList.push(chem);
+          liquidList.push(chem);
           break;
         case 2:
           gasList.push(chem);
@@ -107,7 +107,6 @@ export function drawLabel(container, reactResp) {
       })
     );
     container.instance.add(tooltip);
-    console.log(container);
     container.includesDraw.push(tooltip);
   }
 }
@@ -171,25 +170,25 @@ export function drawSolid(container, item: Item) {
   }
 }
 
-export function drawBubble(container) {
+export function drawBubble(container, item: Item) {
   const { width, height } = container;
-  for (let i = 0; i < 15; i++) {
-    let xRange = Math.min(width - 12, Math.random() * width);
-    let circleX = xRange > 15 ? xRange : 15;
+  for (let i = 0; i < 30; i++) {
+    let xRange = Math.min(width - 30, Math.random() * width);
+    let circleX = xRange > 40 ? xRange : 40;
     const circle = new Konva.Circle({
       x: circleX,
-      y: height - 5,
-      radius: Math.random() * 3,
-      fill: "#fff",
+      y: height - 10,
+      radius: Math.random() * 5,
+      fill: item.color,
       opacity: 0.9,
       name: "shape-" + i,
     });
     container.instance.add(circle);
     const tween = new Konva.Tween({
       node: circle,
-      duration: (Math.random() + 0.6) * 2,
+      duration: (Math.random() + 0.6) * 4,
       y: (Math.random() + 1) * 10,
-      opacity: 0,
+      opacity: 0.1,
       onFinish: () => {
         circle.destroy();
       },

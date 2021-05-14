@@ -6,6 +6,7 @@
     import type { Config } from "../model/useDrag";
     import { drop } from "../model/useDrop";
     import AlcoholBurner from "@/model/alcoholBurner";
+import { drawBubble } from "@/utils/utilsFunc";
     let stage;
     let layer;
     let con;
@@ -69,6 +70,23 @@
                                             tween.play();
                                         }, 100);
                                         break;
+                                    case "gas":
+                                    layer.add(image);
+                                        layer.draw();
+                                        var tween = new Konva.Tween({
+                                            node: image,
+                                            duration: 2,
+                                            rotation: -70,
+                                            opacity: 0.5,
+                                            easing: Konva.Easings.BackEaseOut,
+                                            onFinish: function () {
+                                                image.destroy();
+                                            },
+                                        });
+
+                                        setTimeout(function () {
+                                            tween.play();
+                                        }, 100);
                                     default:
                                         break;
                                 }
