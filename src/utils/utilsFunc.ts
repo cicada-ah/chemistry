@@ -68,17 +68,15 @@ export function drawLabel(container, reactResp) {
     const { width, height } = container;
     // tooltip
     var tooltip = new Konva.Label({
-      x: width / 2,
-      y: -10,
-      opacity: 0.75,
+      x: -40,
+      y: -100,
     });
 
     tooltip.add(
       new Konva.Tag({
-        fill: "white",
-        pointerDirection: "down",
-        pointerWidth: 20,
-        pointerHeight: 20,
+        fill: "black",
+        pointerWidth: 10,
+        pointerHeight: 10,
         lineJoin: "round",
         shadowColor: "green",
         shadowBlur: 10,
@@ -90,19 +88,10 @@ export function drawLabel(container, reactResp) {
 
     tooltip.add(
       new Konva.Text({
-        text: expression,
+        text: `${expression}\r\n\n${ruleDesc}`,
         fontFamily: "Calibri",
-        fontSize: 18,
-        padding: 5,
-        fill: "white",
-      })
-    );
-    tooltip.add(
-      new Konva.Text({
-        text: ruleDesc,
-        fontFamily: "Calibri",
-        fontSize: 18,
-        padding: 5,
+        fontSize: 14,
+        padding: 10,
         fill: "white",
       })
     );
