@@ -171,6 +171,45 @@
     "@material/typography" "^11.0.0"
     tslib "^2.1.0"
 
+"@material/checkbox@^11.0.0":
+  version "11.0.0"
+  resolved "https://npm.baijia.com/@material%2fcheckbox/-/checkbox-11.0.0.tgz#ec5b0eac0007ccacfe6300db1e12591703b7ab5f"
+  integrity sha1-7FsOrAAHzKz+YwDbHhJZFwO3q18=
+  dependencies:
+    "@material/animation" "^11.0.0"
+    "@material/base" "^11.0.0"
+    "@material/density" "^11.0.0"
+    "@material/dom" "^11.0.0"
+    "@material/feature-targeting" "^11.0.0"
+    "@material/ripple" "^11.0.0"
+    "@material/theme" "^11.0.0"
+    "@material/touch-target" "^11.0.0"
+    tslib "^2.1.0"
+
+"@material/data-table@^11.0.0":
+  version "11.0.0"
+  resolved "https://npm.baijia.com/@material%2fdata-table/-/data-table-11.0.0.tgz#78d243cee79f3580075398792aad81c28b26d33c"
+  integrity sha1-eNJDzuefNYAHU5h5Kq2Bwosm0zw=
+  dependencies:
+    "@material/animation" "^11.0.0"
+    "@material/base" "^11.0.0"
+    "@material/checkbox" "^11.0.0"
+    "@material/density" "^11.0.0"
+    "@material/dom" "^11.0.0"
+    "@material/elevation" "^11.0.0"
+    "@material/feature-targeting" "^11.0.0"
+    "@material/icon-button" "^11.0.0"
+    "@material/linear-progress" "^11.0.0"
+    "@material/list" "^11.0.0"
+    "@material/menu" "^11.0.0"
+    "@material/rtl" "^11.0.0"
+    "@material/select" "^11.0.0"
+    "@material/shape" "^11.0.0"
+    "@material/theme" "^11.0.0"
+    "@material/touch-target" "^11.0.0"
+    "@material/typography" "^11.0.0"
+    tslib "^2.1.0"
+
 "@material/density@^11.0.0":
   version "11.0.0"
   resolved "http://npm.baijia.com/@material%2fdensity/-/density-11.0.0.tgz#862b345007f218ab856ba39f2cb8c59712f18270"
@@ -222,6 +261,33 @@
   dependencies:
     tslib "^2.1.0"
 
+"@material/floating-label@^11.0.0":
+  version "11.0.0"
+  resolved "https://npm.baijia.com/@material%2ffloating-label/-/floating-label-11.0.0.tgz#54f8d9a24e2385c543ab1d9ce30ff922a6d091ee"
+  integrity sha1-VPjZok4jhcVDqx2c4w/5IqbQke4=
+  dependencies:
+    "@material/animation" "^11.0.0"
+    "@material/base" "^11.0.0"
+    "@material/dom" "^11.0.0"
+    "@material/feature-targeting" "^11.0.0"
+    "@material/rtl" "^11.0.0"
+    "@material/theme" "^11.0.0"
+    "@material/typography" "^11.0.0"
+    tslib "^2.1.0"
+
+"@material/icon-button@^11.0.0":
+  version "11.0.0"
+  resolved "https://npm.baijia.com/@material%2ficon-button/-/icon-button-11.0.0.tgz#655eb0d44a02fd94f814bdc80bce2e4cfd97ac70"
+  integrity sha1-ZV6w1EoC/ZT4FL3IC84uTP2XrHA=
+  dependencies:
+    "@material/base" "^11.0.0"
+    "@material/density" "^11.0.0"
+    "@material/feature-targeting" "^11.0.0"
+    "@material/ripple" "^11.0.0"
+    "@material/rtl" "^11.0.0"
+    "@material/theme" "^11.0.0"
+    tslib "^2.1.0"
+
 "@material/image-list@^11.0.0":
   version "11.0.0"
   resolved "https://npm.baijia.com/@material%2fimage-list/-/image-list-11.0.0.tgz#632b1dd4fc5aebf21e58fb2888fdeb4cce69d73e"
@@ -231,6 +297,17 @@
     "@material/shape" "^11.0.0"
     "@material/theme" "^11.0.0"
     "@material/typography" "^11.0.0"
+    tslib "^2.1.0"
+
+"@material/line-ripple@^11.0.0":
+  version "11.0.0"
+  resolved "https://npm.baijia.com/@material%2fline-ripple/-/line-ripple-11.0.0.tgz#b13557e620ad6c6a64221d675d18df7390a32e2b"
+  integrity sha1-sTVX5iCtbGpkIh1nXRjfc5CjLis=
+  dependencies:
+    "@material/animation" "^11.0.0"
+    "@material/base" "^11.0.0"
+    "@material/feature-targeting" "^11.0.0"
+    "@material/theme" "^11.0.0"
     tslib "^2.1.0"
 
 "@material/linear-progress@^11.0.0":
@@ -260,6 +337,49 @@
     "@material/shape" "^11.0.0"
     "@material/theme" "^11.0.0"
     "@material/typography" "^11.0.0"
+    tslib "^2.1.0"
+
+"@material/menu-surface@^11.0.0":
+  version "11.0.0"
+  resolved "https://npm.baijia.com/@material%2fmenu-surface/-/menu-surface-11.0.0.tgz#36fef741c33eac98ce98d8790a1ce17ad087daa9"
+  integrity sha1-Nv73QcM+rJjOmNh5ChzhetCH2qk=
+  dependencies:
+    "@material/animation" "^11.0.0"
+    "@material/base" "^11.0.0"
+    "@material/elevation" "^11.0.0"
+    "@material/feature-targeting" "^11.0.0"
+    "@material/rtl" "^11.0.0"
+    "@material/shape" "^11.0.0"
+    "@material/theme" "^11.0.0"
+    tslib "^2.1.0"
+
+"@material/menu@^11.0.0":
+  version "11.0.0"
+  resolved "https://npm.baijia.com/@material%2fmenu/-/menu-11.0.0.tgz#76b519edbf4ed3aee85cd0d56eeabfea349bff37"
+  integrity sha1-drUZ7b9O067oXNDVbuq/6jSb/zc=
+  dependencies:
+    "@material/base" "^11.0.0"
+    "@material/dom" "^11.0.0"
+    "@material/elevation" "^11.0.0"
+    "@material/feature-targeting" "^11.0.0"
+    "@material/list" "^11.0.0"
+    "@material/menu-surface" "^11.0.0"
+    "@material/ripple" "^11.0.0"
+    "@material/rtl" "^11.0.0"
+    "@material/theme" "^11.0.0"
+    tslib "^2.1.0"
+
+"@material/notched-outline@^11.0.0":
+  version "11.0.0"
+  resolved "https://npm.baijia.com/@material%2fnotched-outline/-/notched-outline-11.0.0.tgz#8ea1c23203a4247d68e6588a3c80b88665860e2d"
+  integrity sha1-jqHCMgOkJH1o5liKPIC4hmWGDi0=
+  dependencies:
+    "@material/base" "^11.0.0"
+    "@material/feature-targeting" "^11.0.0"
+    "@material/floating-label" "^11.0.0"
+    "@material/rtl" "^11.0.0"
+    "@material/shape" "^11.0.0"
+    "@material/theme" "^11.0.0"
     tslib "^2.1.0"
 
 "@material/progress-indicator@^11.0.0":
@@ -300,6 +420,29 @@
     "@material/ripple" "^11.0.0"
     "@material/theme" "^11.0.0"
     "@material/touch-target" "^11.0.0"
+    "@material/typography" "^11.0.0"
+    tslib "^2.1.0"
+
+"@material/select@^11.0.0":
+  version "11.0.0"
+  resolved "https://npm.baijia.com/@material%2fselect/-/select-11.0.0.tgz#85b3cf33a91a85a8e9c2349fb8fa981a49f36519"
+  integrity sha1-hbPPM6kahajpwjSfuPqYGknzZRk=
+  dependencies:
+    "@material/animation" "^11.0.0"
+    "@material/base" "^11.0.0"
+    "@material/density" "^11.0.0"
+    "@material/dom" "^11.0.0"
+    "@material/feature-targeting" "^11.0.0"
+    "@material/floating-label" "^11.0.0"
+    "@material/line-ripple" "^11.0.0"
+    "@material/list" "^11.0.0"
+    "@material/menu" "^11.0.0"
+    "@material/menu-surface" "^11.0.0"
+    "@material/notched-outline" "^11.0.0"
+    "@material/ripple" "^11.0.0"
+    "@material/rtl" "^11.0.0"
+    "@material/shape" "^11.0.0"
+    "@material/theme" "^11.0.0"
     "@material/typography" "^11.0.0"
     tslib "^2.1.0"
 
@@ -363,6 +506,26 @@
     "@material/typography" "^11.0.0"
     tslib "^2.1.0"
 
+"@material/textfield@^11.0.0":
+  version "11.0.0"
+  resolved "https://npm.baijia.com/@material%2ftextfield/-/textfield-11.0.0.tgz#8b937bddfa1268206b62b924e3bf7f3bae1d313d"
+  integrity sha1-i5N73foSaCBrYrkk479/O64dMT0=
+  dependencies:
+    "@material/animation" "^11.0.0"
+    "@material/base" "^11.0.0"
+    "@material/density" "^11.0.0"
+    "@material/dom" "^11.0.0"
+    "@material/feature-targeting" "^11.0.0"
+    "@material/floating-label" "^11.0.0"
+    "@material/line-ripple" "^11.0.0"
+    "@material/notched-outline" "^11.0.0"
+    "@material/ripple" "^11.0.0"
+    "@material/rtl" "^11.0.0"
+    "@material/shape" "^11.0.0"
+    "@material/theme" "^11.0.0"
+    "@material/typography" "^11.0.0"
+    tslib "^2.1.0"
+
 "@material/theme@^11.0.0":
   version "11.0.0"
   resolved "http://npm.baijia.com/@material%2ftheme/-/theme-11.0.0.tgz#179df345034213c5ae1e8dcaf47f67f7bf6b71dd"
@@ -402,6 +565,15 @@
     "@smui/common" "^4.1.0"
     "@smui/ripple" "^4.1.0"
 
+"@smui/checkbox@^4.2.0":
+  version "4.2.0"
+  resolved "https://npm.baijia.com/@smui%2fcheckbox/-/checkbox-4.2.0.tgz#ff6fe8cc6571209222ee7afe4d16cf59f654d371"
+  integrity sha1-/2/ozGVxIJIi7nr+TRbPWfZU03E=
+  dependencies:
+    "@material/checkbox" "^11.0.0"
+    "@smui/common" "^4.2.0"
+    "@smui/ripple" "^4.2.0"
+
 "@smui/common@^4.1.0":
   version "4.1.0"
   resolved "http://npm.baijia.com/@smui%2fcommon/-/common-4.1.0.tgz#8cc0912c187a934b1325d6188e50c7ccc65f8888"
@@ -418,6 +590,18 @@
     "@material/dom" "^11.0.0"
     svelte "^3.35.0"
 
+"@smui/data-table@^4.2.0":
+  version "4.2.0"
+  resolved "https://npm.baijia.com/@smui%2fdata-table/-/data-table-4.2.0.tgz#93b3817150005c4c7c2ef51764f3d0122f312c6d"
+  integrity sha1-k7OBcVAAXEx8LvUXZPPQEi8xLG0=
+  dependencies:
+    "@material/data-table" "^11.0.0"
+    "@material/dom" "^11.0.0"
+    "@smui/checkbox" "^4.2.0"
+    "@smui/common" "^4.2.0"
+    "@smui/icon-button" "^4.2.0"
+    "@smui/ripple" "^4.2.0"
+
 "@smui/drawer@^4.1.0":
   version "4.1.0"
   resolved "https://npm.baijia.com/@smui%2fdrawer/-/drawer-4.1.0.tgz#2ed3ccb89418f4ee8f30d84bdf461d4ced45a313"
@@ -427,6 +611,24 @@
     "@material/drawer" "^11.0.0"
     "@smui/common" "^4.1.0"
 
+"@smui/floating-label@^4.2.0":
+  version "4.2.0"
+  resolved "https://npm.baijia.com/@smui%2ffloating-label/-/floating-label-4.2.0.tgz#08e18d19f61967a6613be68e90028622913ef97c"
+  integrity sha1-COGNGfYZZ6ZhO+aOkAKGIpE++Xw=
+  dependencies:
+    "@material/floating-label" "^11.0.0"
+    "@smui/common" "^4.2.0"
+
+"@smui/icon-button@^4.2.0":
+  version "4.2.0"
+  resolved "https://npm.baijia.com/@smui%2ficon-button/-/icon-button-4.2.0.tgz#5162d636d6fb167013c86593b077210c74fa04a9"
+  integrity sha1-UWLWNtb7FnATyGWTsHchDHT6BKk=
+  dependencies:
+    "@material/density" "^11.0.0"
+    "@material/icon-button" "^11.0.0"
+    "@smui/common" "^4.2.0"
+    "@smui/ripple" "^4.2.0"
+
 "@smui/image-list@^4.1.0":
   version "4.1.0"
   resolved "https://npm.baijia.com/@smui%2fimage-list/-/image-list-4.1.0.tgz#dd8b145eafc7e88da5665f3a74b8e18e41ac27ed"
@@ -434,6 +636,14 @@
   dependencies:
     "@material/image-list" "^11.0.0"
     "@smui/common" "^4.1.0"
+
+"@smui/line-ripple@^4.2.0":
+  version "4.2.0"
+  resolved "https://npm.baijia.com/@smui%2fline-ripple/-/line-ripple-4.2.0.tgz#51aac1b1695d87d2331f00a0cd5626e0f48dbf0f"
+  integrity sha1-UarBsWldh9IzHwCgzVYm4PSNvw8=
+  dependencies:
+    "@material/line-ripple" "^11.0.0"
+    "@smui/common" "^4.2.0"
 
 "@smui/linear-progress@^4.2.0":
   version "4.2.0"
@@ -454,10 +664,57 @@
     "@smui/common" "^4.1.0"
     "@smui/ripple" "^4.1.0"
 
+"@smui/list@^4.2.0":
+  version "4.2.0"
+  resolved "https://npm.baijia.com/@smui%2flist/-/list-4.2.0.tgz#c8368d6b7798f40531666212e5b605c24f2837b1"
+  integrity sha1-yDaNa3eY9AUxZmIS5bYFwk8oN7E=
+  dependencies:
+    "@material/dom" "^11.0.0"
+    "@material/feature-targeting" "^11.0.0"
+    "@material/list" "^11.0.0"
+    "@smui/common" "^4.2.0"
+    "@smui/ripple" "^4.2.0"
+
+"@smui/menu-surface@^4.2.0":
+  version "4.2.0"
+  resolved "https://npm.baijia.com/@smui%2fmenu-surface/-/menu-surface-4.2.0.tgz#ba944110d4619aba9563e81cd8733d9e4e7f1256"
+  integrity sha1-upRBENRhmrqVY+gc2HM9nk5/ElY=
+  dependencies:
+    "@material/animation" "^11.0.0"
+    "@material/menu-surface" "^11.0.0"
+    "@smui/common" "^4.2.0"
+
+"@smui/menu@^4.2.0":
+  version "4.2.0"
+  resolved "https://npm.baijia.com/@smui%2fmenu/-/menu-4.2.0.tgz#596fd1e8d9e9de5318fa4651032118c133d5d67a"
+  integrity sha1-WW/R6Nnp3lMY+kZRAyEYwTPV1no=
+  dependencies:
+    "@material/dom" "^11.0.0"
+    "@material/menu" "^11.0.0"
+    "@smui/common" "^4.2.0"
+    "@smui/list" "^4.2.0"
+    "@smui/menu-surface" "^4.2.0"
+
+"@smui/notched-outline@^4.2.0":
+  version "4.2.0"
+  resolved "https://npm.baijia.com/@smui%2fnotched-outline/-/notched-outline-4.2.0.tgz#3e5e382a24135fa2020e80f3cba3e8dc04342be1"
+  integrity sha1-Pl44KiQTX6ICDoDzy6Po3AQ0K+E=
+  dependencies:
+    "@material/notched-outline" "^11.0.0"
+    "@smui/common" "^4.2.0"
+
 "@smui/ripple@^4.1.0":
   version "4.1.0"
   resolved "https://npm.baijia.com/@smui%2fripple/-/ripple-4.1.0.tgz#a5d3a3d6ef5930d48b0f44e4eb11ebbaeb1d0803"
   integrity sha1-pdOj1u9ZMNSLD0Tk6xHruusdCAM=
+  dependencies:
+    "@material/dom" "^11.0.0"
+    "@material/ripple" "^11.0.0"
+
+"@smui/ripple@^4.2.0":
+  version "4.2.0"
+  resolved "https://npm.baijia.com/@smui%2fripple/-/ripple-4.2.0.tgz#cde00f50393094658b32965569c6758274b24154"
+  integrity sha1-zeAPUDkwlGWLMpZVacZ1gnSyQVQ=
   dependencies:
     "@material/dom" "^11.0.0"
     "@material/ripple" "^11.0.0"
@@ -470,6 +727,25 @@
     "@material/segmented-button" "^11.0.0"
     "@smui/common" "^4.1.0"
     "@smui/ripple" "^4.1.0"
+
+"@smui/select@^4.2.0":
+  version "4.2.0"
+  resolved "https://npm.baijia.com/@smui%2fselect/-/select-4.2.0.tgz#2950ec9f272f748deefbbf6808600021c79302ae"
+  integrity sha1-KVDsnycvdI3u+79oCGAAIceTAq4=
+  dependencies:
+    "@material/feature-targeting" "^11.0.0"
+    "@material/ripple" "^11.0.0"
+    "@material/rtl" "^11.0.0"
+    "@material/select" "^11.0.0"
+    "@material/theme" "^11.0.0"
+    "@smui/common" "^4.2.0"
+    "@smui/floating-label" "^4.2.0"
+    "@smui/line-ripple" "^4.2.0"
+    "@smui/list" "^4.2.0"
+    "@smui/menu" "^4.2.0"
+    "@smui/menu-surface" "^4.2.0"
+    "@smui/notched-outline" "^4.2.0"
+    "@smui/ripple" "^4.2.0"
 
 "@smui/tab-bar@^4.1.0":
   version "4.1.0"
@@ -505,6 +781,22 @@
     "@material/tab" "^11.0.0"
     "@smui/common" "^4.1.0"
     "@smui/tab-indicator" "^4.1.0"
+
+"@smui/textfield@^4.2.0":
+  version "4.2.0"
+  resolved "https://npm.baijia.com/@smui%2ftextfield/-/textfield-4.2.0.tgz#55d357fd1819540525533ce8c46364748e753308"
+  integrity sha1-VdNX/RgZVAUlUzzoxGNkdI51Mwg=
+  dependencies:
+    "@material/dom" "^11.0.0"
+    "@material/feature-targeting" "^11.0.0"
+    "@material/ripple" "^11.0.0"
+    "@material/rtl" "^11.0.0"
+    "@material/textfield" "^11.0.0"
+    "@smui/common" "^4.2.0"
+    "@smui/floating-label" "^4.2.0"
+    "@smui/line-ripple" "^4.2.0"
+    "@smui/notched-outline" "^4.2.0"
+    "@smui/ripple" "^4.2.0"
 
 "@tsconfig/svelte@^1.0.10":
   version "1.0.10"
