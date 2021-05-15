@@ -63,9 +63,12 @@ class Container extends Box {
       });
   }
   enter(v: AlcoholBurner) {
+    const { x, y, width, height } = this;
     if (v.lampType) {
+      const lampInstance = v.instance;
+      lampInstance.setPosition({ x: x + 20, y: y + height });
       v.lampType === "high" ? this.changeCondition(2) : this.changeCondition(3);
-    } else if (v["_h2o"]?.lmapType !== undefined) {
+    } else if (v["_h2o"]?.lmapType) {
       switch (v["_h2o"]?.lmapType) {
         case "high":
           this.changeCondition(2);
@@ -93,6 +96,14 @@ class Container extends Box {
         drawBubble(this, item);
         break;
     }
+    // console.log(item);
+    // const reactResp = [
+    //   {
+    //     expression: `正在添加：${item.name}`,
+    //     ruleDesc: `物理状态：${item.attribute}`,
+    //   },
+    // ];
+    // drawLabel(this, reactResp);
     this.includes.push(item);
     this.includes.length >= 2 && this.reaction();
   }
