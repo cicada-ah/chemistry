@@ -43,5 +43,5 @@
     class="draw-button"
     touch
     variant="raised">
-    <Label>Toggle Drawer</Label>
+    <Label>化学反应方程式</Label>
 </Button>

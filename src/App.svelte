@@ -96,8 +96,8 @@
 <div class="drawer-container">
     <Drawer variant="dismissible" bind:open class="drawer-container-sider">
         <Header>
-            <Title>Super Drawer</Title>
-            <Subtitle>It's the best drawer.</Subtitle>
+            <Title>化学反应方程式</Title>
+            <Subtitle>填写化合物推理反应结果...</Subtitle>
         </Header>
         <Content>
             <Textfield bind:value={formula1} label="formula1">
@@ -114,7 +114,7 @@
                     <Option value={fruit}>{fruit}</Option>
                 {/each}
             </Select>
-            <div style=" margin-top: 30px; margin-bottom:230px">
+            <div style=" margin-top: 30px; margin-bottom:30px">
                 <Button variant="unelevated" on:click={handleReaction}>
                     <Label>reaction</Label>
                 </Button>
