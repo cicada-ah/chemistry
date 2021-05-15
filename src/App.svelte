@@ -71,8 +71,9 @@
         overflow: hidden;
         z-index: 0;
         :global(.drawer-container-sider) {
-            width: 500px;
+            width: 60vw;
             padding: 0 16px 4px;
+            z-index: 99999;
         }
         :global(.mdc-text-field) {
             width: 100%;
@@ -113,7 +114,7 @@
                     <Option value={fruit}>{fruit}</Option>
                 {/each}
             </Select>
-            <div style=" margin-top: 20px">
+            <div style=" margin-top: 30px; margin-bottom:230px">
                 <Button variant="unelevated" on:click={handleReaction}>
                     <Label>reaction</Label>
                 </Button>

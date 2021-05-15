@@ -16,7 +16,7 @@
     :global(.draw-button) {
         position: absolute;
         margin-top: 10px;
-        z-index: 999;
+        z-index: 99999999;
     }
     .darw-toolbal {
         position: absolute;
@@ -40,6 +40,8 @@
 {/if}
 <Button
     on:click={() => toggleDrawered.set(!$toggleDrawered)}
-    class="draw-button">
+    class="draw-button"
+    touch
+    variant="raised">
     <Label>Toggle Drawer</Label>
 </Button>
