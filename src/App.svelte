@@ -13,14 +13,17 @@
     import { toggleDrawered } from "@/store/MenuBar.ts";
     import Select, { Option } from "@smui/select";
     import Button, { Label, Icon } from "@smui/button";
+    import LinearProgress from "@smui/linear-progress";
     import { postChemicalReact } from "./subjects/http";
     import DataTable, { Head, Body, Row, Cell } from "@smui/data-table";
+    import { delay } from "rxjs/operators";
 
     let open: Boolean = false;
     let formula1 = null;
     let formula2 = null;
     let formula3 = null;
-
+    let loaded: Boolean = true;
+    let loadedDelay: Boolean = true;
     let condType = "常温";
     let fruits = ["常温", "高温", "加热", "电解", "催化剂", "点燃"];
 
@@ -40,22 +43,30 @@
         if (formula3) {
             reactors.push(formula3);
         }
+        loaded = false;
+        loadedDelay = false;
+        setTimeout(() => {
+            loadedDelay = true;
+        }, 3000);
         postChemicalReact({
             reactors: reactors,
             condType: fruits.indexOf(condType),
-        }).subscribe((res) => {
-            if (res.description && res.reactResp.length) {
-                const description = res["description"];
-                const resItems = [];
-                res.reactResp.forEach((item) => {
-                    resItems.push({
-                        description,
-                        ...item,
+        })
+            .pipe(delay(2000))
+            .subscribe((res) => {
+                loaded = true;
+                if (res.description && res.reactResp.length) {
+                    const description = res["description"];
+                    const resItems = [];
+                    res.reactResp.forEach((item) => {
+                        resItems.push({
+                            description,
+                            ...item,
+                        });
                     });
-                });
-                items = resItems;
-            }
-        });
+                    items = resItems;
+                }
+            });
     };
 </script>
 
@@ -97,9 +108,13 @@
     <Drawer variant="dismissible" bind:open class="drawer-container-sider">
         <Header>
             <Title>化学反应方程式</Title>
-            <Subtitle>填写化合物推理反应结果...</Subtitle>
+            <Subtitle>填写反应物推理反应结果...</Subtitle>
         </Header>
         <Content>
+            <LinearProgress
+                indeterminate
+                bind:closed={loadedDelay}
+                aria-label="Data is being loaded..." />
             <Textfield bind:value={formula1} label="formula1">
                 <HelperText slot="helper">reactant formula eg: H2O</HelperText>
             </Textfield>
@@ -109,7 +124,7 @@
             <Textfield bind:value={formula3} label="formula3">
                 <HelperText slot="helper">reactant formula eg: H2O</HelperText>
             </Textfield>
-            <Select bind:condType label="condtion type">
+            <Select bind:value={condType} label="condtion type">
                 {#each fruits as fruit}
                     <Option value={fruit}>{fruit}</Option>
                 {/each}
@@ -139,11 +154,11 @@
                     {/each}
                 </Body>
 
-                <!-- <LinearProgress
+                <LinearProgress
                     indeterminate
                     bind:closed={loaded}
                     aria-label="Data is being loaded..."
-                    slot="progress" /> -->
+                    slot="progress" />
             </DataTable>
         </Content>
     </Drawer>
