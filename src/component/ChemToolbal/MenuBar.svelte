@@ -1,7 +1,9 @@
 <script>
   import SegmentedButton, { Segment } from "@smui/segmented-button";
+  import Button from "@smui/button";
   import { Label } from "@smui/common";
   import { selected } from "@/store/MenuBar.ts";
+  import { layered } from "@/store/MenuBar.ts";
   let choices = ["solidList", "liquidList", "gasList", "equipment", "mixture"];
 </script>
 
@@ -43,4 +45,13 @@
       <Label>{segment}</Label>
     </Segment>
   </SegmentedButton>
+  <Button
+    on:click={() => {
+      $layered.destroyChildren();
+      $layered.draw();
+    }}
+    touch
+    variant="raised">
+    <Label>RESET</Label>
+  </Button>
 </div>

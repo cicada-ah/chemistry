@@ -6,10 +6,10 @@
     import type { Config } from "../model/useDrag";
     import { drop } from "../model/useDrop";
     import AlcoholBurner from "@/model/alcoholBurner";
-    import { drawBubble } from "@/utils/utilsFunc";
+    import { layered } from "@/store/MenuBar.ts";
     let stage;
-    let layer;
     let con;
+    let layer;
 
     setContext(key, {
         getStage() {
@@ -31,7 +31,10 @@
             width: width,
             height: height,
         });
-        layer = new Konva.Layer();
+        layered.set(new Konva.Layer());
+        layered.subscribe((value) => {
+            layer = value;
+        });
         stage.add(layer);
         con = stage.container();
         con.addEventListener("dragover", function (e: DragEvent) {
