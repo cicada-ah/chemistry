@@ -36,9 +36,8 @@ export function drawProduct(container, reactResp) {
       ...item,
     });
   });
-  const hasLiquid = !!liquidList.length;
   solidList.forEach((item) => {
-    if (hasLiquid) {
+    if (item.waterSolubility) {
       container.addItem({
         name: item.formula,
         attribute: "liquid",
