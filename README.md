@@ -58,16 +58,15 @@ src
 ## 部分功能实现
 * **实验平台**
 ***
-![image](https://user-images.githubusercontent.com/27653885/123867353-d47d4780-d960-11eb-9a98-db5057ea3954.png)
-![image](https://user-images.githubusercontent.com/27653885/123867544-160df280-d961-11eb-8563-3bbb414cf8ea.png)
+<img src="https://user-images.githubusercontent.com/27653885/123867353-d47d4780-d960-11eb-9a98-db5057ea3954.png" width="600px">
+<img src="https://user-images.githubusercontent.com/27653885/123867544-160df280-d961-11eb-8563-3bbb414cf8ea.png" width="600px">
+</br>
+</br>
+</br>
 
-</br>
-</br>
-</br>
 * **侧边栏查询功能**
 ***
-![image](https://user-images.githubusercontent.com/27653885/123866687-fd510d00-d95f-11eb-88b2-29962de9585f.png)
-
+<img src="https://user-images.githubusercontent.com/27653885/123866687-fd510d00-d95f-11eb-88b2-29962de9585f.png" width=600px">
 </br>
 </br>
 </br>
@@ -75,7 +74,7 @@ src
 
 * **后台管理页面**
 ***
-![image](https://user-images.githubusercontent.com/27653885/123867657-32aa2a80-d961-11eb-8340-0477658d4760.png)
+<img src="https://user-images.githubusercontent.com/27653885/123867657-32aa2a80-d961-11eb-8340-0477658d4760.png" width="600px">
 </br>
 </br>
 </br>
