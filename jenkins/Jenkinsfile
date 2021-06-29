@@ -6,9 +6,9 @@ def exposePort = { props, params, env, ctx ->
 
 def serviceHosts = { props, params, env, ctx ->
     def map = [
-        'test': 'test-chemical-h2o.baijia.com',
-        'beta': 'beta-chemical-h2o.baijia.com',
-        'prod': 'chemical-h2o.baijia.com'
+        'test': 'test-chemical-h2o.xxx.com',
+        'beta': 'beta-chemical-h2o.xxx.com',
+        'prod': 'chemical-h2o.xxx.com'
     ]
     return map[props['PROJECT_ENV']]
 }
@@ -34,7 +34,7 @@ def generatePushScript = { props, params, env, ctx ->
 }
 
 def configStub = { props, params, env, ctx ->
-    com.baijia.whyy.Common.notEmpty(props['SUB_COMMAND'], "SUB_COMMAND 未提供", ctx.CURRENT_BUILD)
+    com.xxx.whyy.Common.notEmpty(props['SUB_COMMAND'], "SUB_COMMAND 未提供", ctx.CURRENT_BUILD)
 }
 
 whyy([

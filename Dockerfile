@@ -2,7 +2,7 @@
 FROM node:14.6.0 as build
 WORKDIR /app
 COPY package.json yarn.lock ./
-RUN SENTRYCLI_CDNURL=https://npm.taobao.org/mirrors/sentry-cli/ yarn --registry=http://npm.baijia.com/
+RUN SENTRYCLI_CDNURL=https://npm.taobao.org/mirrors/sentry-cli/ yarn --registry=http://npm.xxx.com/
 COPY . .
 ARG SUB_COMMAND=build
 ARG TAG_NAME=''

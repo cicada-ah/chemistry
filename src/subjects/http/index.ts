@@ -28,7 +28,7 @@ http$$.subscribe();
 export const postChemicalReact = (parmas: any) => {
   const mergeConfig = _merge(
     {
-      url: "https://test-chemical-web.baijia.com/chemical/react",
+      url: "https://test-chemical-web.xxx.com/chemical/react",
       method: "POST",
     },
     {
@@ -42,7 +42,7 @@ export const postChemicalReact = (parmas: any) => {
 export const getChemicals = () => {
   const mergeConfig = _merge(
     {
-      url: "https://test-chemical-web.baijia.com/chemical/getAll",
+      url: "https://test-chemical-web.xxx.com/chemical/getAll",
       method: "get",
     },
 
