@@ -66,7 +66,8 @@ src
 
 * **侧边栏查询功能**
 ***
-<img src="https://user-images.githubusercontent.com/27653885/123866687-fd510d00-d95f-11eb-88b2-29962de9585f.png" width=600px">
+<img src="https://user-images.githubusercontent.com/27653885/123866687-fd510d00-d95f-11eb-88b2-29962de9585f.png" width="600px">
+                                                                                                                             
 </br>
 </br>
 </br>
